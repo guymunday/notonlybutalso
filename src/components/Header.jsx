@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
@@ -20,7 +19,7 @@ class Header extends Component {
     return (
       <StyledHeader invert={invert}>
         <Link to="/" aria-label="Back to Home">
-          Frontend Developer
+          Header.jsx file
         </Link>
       </StyledHeader>
     )
@@ -29,10 +28,3 @@ class Header extends Component {
 
 export default Header
 
-Header.propTypes = {
-  invert: PropTypes.bool,
-}
-
-Header.defaultProps = {
-  invert: false,
-}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 const StyledFooter = styled.footer`
@@ -11,13 +10,9 @@ const StyledFooter = styled.footer`
 
 class Footer extends Component {
   render() {
-    const { children } = this.props
-    return <StyledFooter>{children}</StyledFooter>
+    return <StyledFooter>Hello</StyledFooter>
   }
 }
 
 export default Footer
 
-Footer.propTypes = {
-  children: PropTypes.node.isRequired,
-}

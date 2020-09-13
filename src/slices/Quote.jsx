@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 const BlockQuote = styled.blockquote`
-  max-width: ${(props) => props.theme.maxWidthText};
 `
 
 const Quote = ({ input }) => (

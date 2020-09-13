@@ -23,7 +23,7 @@ module.exports = {
     ogLanguage: website.ogLanguage,
     author: website.author,
     twitter: website.twitter,
-    facebook: website.facebook
+    facebook: website.facebook,
   },
   /* Plugins */
   plugins: [
@@ -35,10 +35,10 @@ module.exports = {
         repositoryName: "notonly",
         accessToken: `${process.env.API_KEY}`,
         // Get the correct URLs in blog posts
-        linkResolver: () => post => `/${post.uid}`,
+        linkResolver: () => (post) => `/${post.uid}`,
         // PrismJS highlighting for labels and slices
-        htmlSerializer: () => prismicHtmlSerializer
-      }
+        htmlSerializer: () => prismicHtmlSerializer,
+      },
     },
     "gatsby-plugin-lodash",
     "gatsby-transformer-sharp",
@@ -46,14 +46,14 @@ module.exports = {
     {
       resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: "config/typography.js"
-      }
+        pathToConfigModule: "config/typography.js",
+      },
     },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: website.googleAnalyticsID
-      }
+        trackingId: website.googleAnalyticsID,
+      },
     },
     "gatsby-plugin-sitemap",
     {
@@ -66,11 +66,12 @@ module.exports = {
         background_color: website.backgroundColor,
         theme_color: website.themeColor,
         display: "standalone",
-        icon: website.favicon
-      }
+        icon: website.favicon,
+      },
     },
+    "gatsby-plugin-dark-mode",
     // Must be placed at the end
     "gatsby-plugin-offline",
-    "gatsby-plugin-netlify"
-  ]
+    "gatsby-plugin-netlify",
+  ],
 };

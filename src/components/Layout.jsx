@@ -5,83 +5,67 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 // import { StaticQuery, graphql } from "gatsby";
 import { Global, css } from "@emotion/core";
-import { ThemeProvider } from "emotion-theming";
 import "@reach/skip-nav/styles.css";
 
 import Footer from "./Footer";
 import SEO from "./SEO";
 import SkipNavLink from "./SkipNavLink";
-import { theme, reset } from "../styles";
-
-// import "typeface-lora";
-// import "typeface-source-sans-pro";
+import reset from "../styles/reset";
+import Header from "./Header";
 
 const globalStyle = css`
   ${reset}
-  h1, h2, h3, h4, h5, h6 {
-    color: #000;
+  * {
+    transition: font-size 0.4s ease;
+    background: transparent;
   }
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    color: #000;
-    background-color: #ffffff;
+    --bg: gray;
+    background-color: var(--bg);
   }
-  ::selection {
-    color: #000;
-    background-color: #ffffff;
+
+  body.dark {
+    --bg: blue;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  p {
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
   }
   a {
     color: #000;
     transition: all 0.4s ease-in-out;
     text-decoration: none;
-    font-weight: 700;
-    font-style: italic;
+    font-weight: 450;
     &:hover,
     &:focus {
       text-decoration: underline;
-    }
-  }
-  @media (max-width: ${theme.breakpoints.m}) {
-    html {
-      font-size: 16px !important;
-    }
-  }
-  @media (max-width: ${theme.breakpoints.s}) {
-    h1 {
-      font-size: 2.369rem !important;
-    }
-    h2 {
-      font-size: 1.777rem !important;
-    }
-    h3 {
-      font-size: 1.333rem !important;
-    }
-    h4 {
-      font-size: 1rem !important;
-    }
-    h5 {
-      font-size: 0.75rem !important;
-    }
-    h6 {
-      font-size: 0.563rem !important;
     }
   }
 `;
 
 const Layout = ({ children, data, customSEO }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <>
-        <Global styles={globalStyle} />
-        <SkipNavLink />
-        {!customSEO && <SEO />}
-        {children}
-        <Footer />
-      </>
-    </ThemeProvider>
+    <>
+      <Global styles={globalStyle} />
+      <SkipNavLink />
+      <Header />
+      {!customSEO && <SEO />}
+      {children}
+      <Footer />
+    </>
   );
 };
 

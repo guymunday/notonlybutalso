@@ -9,31 +9,18 @@ import {
   SliceZone,
   Title,
   SEO,
-  Header,
 } from "../components";
 import Categories from "../components/Listing/Categories";
 import website from "../../config/website";
 import Img from "gatsby-image";
 
 const Hero = styled.header`
-  background-color: ${(props) => props.theme.colors.greyLight};
-  padding-top: 1rem;
-  padding-bottom: 4rem;
+
 `;
 
 const Headline = styled.p`
-  font-family: "Source Sans Pro", -apple-system, "BlinkMacSystemFont",
-    "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
-  color: ${(props) => props.theme.colors.grey};
-  font-size: 1.25rem;
-  a {
-    font-style: normal;
-    font-weight: normal;
-  }
-`;
 
-const PostWrapper = Wrapper.withComponent("main");
+`;
 
 const Post = ({ data: { prismicPost, posts }, location }) => {
   const { data } = prismicPost;
@@ -52,7 +39,6 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
       />
       <Hero>
         <Wrapper>
-          <Header />
           <Headline>
             {data.date} — {categories && <Categories categories={categories} />}
           </Headline>
@@ -64,11 +50,11 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
           />
         </Wrapper>
       </Hero>
-      <PostWrapper id={website.skipNavId}>
+      <div id={website.skipNavId}>
         <SliceZone allSlices={data.body} />
-        <Title style={{ marginTop: "4rem" }}>Recent posts</Title>
+        <Title style={{ marginTop: "4rem" }}>See more {categories && <Categories categories={categories} />} posts</Title>
         <Listing posts={posts.nodes} />
-      </PostWrapper>
+      </div>
     </Layout>
   );
 };

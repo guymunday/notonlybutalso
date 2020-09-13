@@ -4,8 +4,7 @@ import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 
 const Content = styled.div`
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+
 `
 
 const Image = ({ input }) => (

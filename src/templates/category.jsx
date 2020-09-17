@@ -5,6 +5,7 @@ import { Layout, Listing, Wrapper, Title, SEO } from "../components";
 import website from "../../config/website";
 import StrategyHeader from "../components/Listing/StrategyHeader";
 import UxHeader from "../components/Listing/UxHeader";
+import { motion } from "framer-motion";
 
 const Hero = styled.header``;
 
@@ -20,30 +21,30 @@ const Category = ({
   location,
 }) => (
   <Layout>
-    <SEO
-      title={`Category: ${category} | ${website.titleAlt}`}
-      pathname={location.pathname}
-    />
-    <Hero>
-      <Wrapper>
-        <Headline>Category</Headline>
-        <h1>{category}</h1>
-        {(() => {
-          if (category === "Strat") {
-            return <StrategyHeader />;
-          } else if (category === "UX") {
-            return <UxHeader />;
-          }
-        })()}
-      </Wrapper>
-    </Hero>
-    <CatWrapper id={website.skipNavId}>
-      <Title style={{ marginTop: "4rem" }}>
-        {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}
-        {totalCount === 1 ? "was" : "were"} tagged with "{category}"
-      </Title>
-      <Listing posts={nodes} />
-    </CatWrapper>
+      <SEO
+        title={`Category: ${category} | ${website.titleAlt}`}
+        pathname={location.pathname}
+      />
+      <Hero>
+        <Wrapper>
+          <Headline>Category</Headline>
+          <h1>{category}</h1>
+          {(() => {
+            if (category === "Strat") {
+              return <StrategyHeader />;
+            } else if (category === "UX") {
+              return <UxHeader />;
+            }
+          })()}
+        </Wrapper>
+      </Hero>
+      <CatWrapper id={website.skipNavId}>
+        <Title style={{ marginTop: "4rem" }}>
+          {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}
+          {totalCount === 1 ? "was" : "were"} tagged with "{category}"
+        </Title>
+        <Listing posts={nodes} />
+      </CatWrapper>
   </Layout>
 );
 

@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `.env`
+  path: `.env`,
 });
 
 const prismicHtmlSerializer = require("./src/gatsby/htmlSerializer");
@@ -44,9 +44,19 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-plugin-typography",
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
-        pathToConfigModule: "config/typography.js",
+        fonts: [
+          {
+            family: "Inter",
+            variable: true,
+            weights: ["200..900"],
+          },
+          {
+            family: "Shrikhand",
+            weights: ["400"],
+          },
+        ],
       },
     },
     {

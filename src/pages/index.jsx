@@ -4,6 +4,8 @@ import { graphql } from "gatsby";
 import { Layout, Listing, Wrapper, Title } from "../components";
 // import Img from "gatsby-image";
 import { motion, AnimatePresence } from "framer-motion";
+import AboutSection from "../components/Homepage/AboutSection";
+import HomeHero from "../components/Homepage/HomeHero";
 
 const Index = ({ data }) => {
   const [finishLoading, setFinishLoading] = useState(true);
@@ -15,14 +17,17 @@ const Index = ({ data }) => {
     }, 3000);
   }, []);
 
+
+
   return (
     <AnimatePresence>
-      {finishLoading &&
-      typeof window !== "undefined" &&
-      !sessionStorage.getItem("first_time") ? (
+      {finishLoading && typeof window !== "undefined"
+        && !sessionStorage.getItem("first_time") ? (
         <h1>hello</h1>
       ) : (
         <Layout>
+          <HomeHero />
+          <AboutSection />
           <Listing posts={data.posts.nodes} />
         </Layout>
       )}

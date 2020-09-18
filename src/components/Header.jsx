@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-// import { Link } from "gatsby";
+import { Link } from "gatsby";
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -21,6 +21,7 @@ const HeaderFlex = styled.header`
     height: 52px;
     margin: auto;
     z-index: 4;
+    text-decoration: none;
     @media screen and (max-width: 650px) {
       height: 34px;
     }
@@ -30,39 +31,17 @@ const HeaderFlex = styled.header`
     .no {
       width: 30%;
       text-align: right;
-      h1 {
-        font-size: 35px;
-        font-family: "Inter";
-        font-weight: 600;
-        padding: 0;
-        padding: 3px;
-        color: var(--primary);
-        @media screen and (max-width: 650px) {
-          font-size: 25px;
-        }
-      }
     }
     .ba {
       width: 30%;
       text-align: left;
-      h1 {
-        font-size: 35px;
-        font-family: "Inter";
-        font-weight: 600;
-        padding: 0;
-        padding: 3px;
-        color: var(--primary);
-        @media screen and (max-width: 650px) {
-          font-size: 25px;
-        }
-      }
     }
 
     span {
       display: block;
       height: 3px;
       background: var(--primary);
-      margin-top: 9px;
+      margin-top: 5px;
       transform-origin: left center;
       align-self: center;
       @media screen and (max-width: 650px) {
@@ -77,11 +56,23 @@ const HeaderFlex = styled.header`
       outline: none;
       border: none;
       cursor: pointer;
-      line-height: 1;
       font-weight: 600;
       color: var(--copy);
-      :hover {
-        text-decoration: underline;
+      padding: 10px;
+    }
+  }
+  .logo-h1 {
+    a {
+      white-space: nowrap;
+      font-size: 35px;
+      font-family: "Inter";
+      font-weight: 600;
+      padding: 0;
+      padding: 3px;
+      text-decoration: none;
+      color: var(--primary);
+      @media screen and (max-width: 650px) {
+        font-size: 25px;
       }
     }
   }
@@ -89,51 +80,54 @@ const HeaderFlex = styled.header`
 
 const Header = ({ toggleMenu, setToggleMenu }) => {
   return (
-    <HeaderFlex>
-      <ThemeToggle />
-      <div className="logo">
-        <div className="no">
-          {typeof window !== "undefined" && window.location.pathname === "/" ? (
+    <>
+      <HeaderFlex>
+        <ThemeToggle />
+        <div className="logo">
+          <div className="no">
             <motion.h1
+              className="logo-h1"
               initial={{ y: "-400%", skewY: -40 }}
               animate={{ y: "0", skewY: 0 }}
               transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
             >
-              Not Only
+              <Link to="/">Not Only</Link>
             </motion.h1>
-          ) : (
-            <h1>Not Only</h1>
-          )}
-        </div>
-        <motion.span
-          initial={{ width: "0%" }}
-          animate={{ width: "40%" }}
-          transition={{
-            duration: 0.8,
-            ease: [0.6, 0.05, -0.01, 0.9],
-            delay: 0.8,
-          }}
-        ></motion.span>
-        <div className="ba">
-          <motion.h1
-            initial={{ y: "400%", skewY: 40 }}
-            animate={{ y: "0", skewY: 0 }}
+          </div>
+          <motion.span
+            initial={{ width: "0%" }}
+            animate={{ width: "40%" }}
             transition={{
               duration: 0.8,
               ease: [0.6, 0.05, -0.01, 0.9],
-              delay: 1.6,
+              delay: 0.8,
             }}
-          >
-            But Also
-          </motion.h1>
+          ></motion.span>
+          <div className="ba">
+            <motion.h1
+              className="logo-h1"
+              initial={{ y: "400%", skewY: 40 }}
+              animate={{ y: "0", skewY: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.6, 0.05, -0.01, 0.9],
+                delay: 1.6,
+              }}
+            >
+              <Link to="/">But Also</Link>
+            </motion.h1>
+          </div>
         </div>
-      </div>
-      <div className="menu-button">
-        <button onClick={() => setToggleMenu(!toggleMenu)}>
-          {toggleMenu ? "Close" : "Menu"}
-        </button>
-      </div>
-    </HeaderFlex>
+        <div className="menu-button">
+          <motion.button
+            whileTap={{ scale: 0.8 }}
+            onClick={() => setToggleMenu(!toggleMenu)}
+          >
+            {toggleMenu ? "Close" : "Menu"}
+          </motion.button>
+        </div>
+      </HeaderFlex>
+    </>
   );
 };
 

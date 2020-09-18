@@ -11,6 +11,7 @@ const MenuContainer = styled(motion.div)`
   bottom: 0;
   overflow: hidden;
   background: var(--bg);
+  z-index: 999;
   @media screen and (max-width: 650px) {
     top: 34px;
   }

@@ -5,6 +5,6 @@ import Header from './Header'
 import SliceZone from './SliceZone'
 import Title from './Title'
 import Layout from './Layout'
-import Wrapper from './Wrapper'
+import PostWrapper from './PostWrapper'
 
-export { Footer, Layout, Listing, SEO, Wrapper, SliceZone, Title, Header }
+export { Footer, Layout, Listing, SEO, PostWrapper, SliceZone, Title, Header }

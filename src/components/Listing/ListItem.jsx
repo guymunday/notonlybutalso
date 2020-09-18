@@ -11,11 +11,18 @@ const Item = styled.div`
   border-bottom: 1px solid var(--copy);
   margin: 10px 0;
   display: flex;
+  .gatsby-image-wrapper {
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+  }
 `;
 
-const Headline = styled.h3``;
-
 const ItemInner = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 export default class ListItem extends Component {
@@ -23,21 +30,21 @@ export default class ListItem extends Component {
     const { node, categories } = this.props;
     return (
       <Item>
-        <h1>
-          {/* {node.data.date} —{" "} */}
-          {categories && <Categories categories={categories} />}
-        </h1>
+        <Img
+          fluid={node.data.hero_image.localFile.childImageSharp.fluid}
+          alt={node.data.title.text}
+        />
 
-        <Link to={`/${categories[0]}/${node.uid}`}>
-          <ItemInner>
-            {/* <Img
-            fluid={node.data.hero_image.localFile.childImageSharp.fluid}
-            alt={node.data.title.text}
-          /> */}
+        <ItemInner>
+          <h1>
+            {/* {node.data.date} —{" "} */}
+            {categories && <Categories categories={categories} />}
+          </h1>
+          <Link to={`/${categories[0]}/${node.uid}`}>
             <h2>{node.data.title.text}</h2>
             <h3>Words by {node.data.author.text}</h3>
-          </ItemInner>
-        </Link>
+          </Link>
+        </ItemInner>
       </Item>
     );
   }

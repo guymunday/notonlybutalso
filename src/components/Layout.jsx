@@ -105,13 +105,11 @@ const variants = {
       duration: duration,
       delay: duration,
       when: "beforeChildren",
-      staggerChildren: 0.5,
     },
   },
   exit: {
     y: 100,
-    opacity: 0,
-    transition: { duration: duration },
+    transition: { duration: 13, delay: duration },
   },
 };
 
@@ -134,16 +132,18 @@ const Layout = ({ children, data, customSEO }) => {
       <Menu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
       {!customSEO && <SEO />}
       <AnimatePresence exitBeforeEnter>
-        <motion.main
+        <motion.div
           variants={variants}
           initial="initial"
           animate="enter"
           exit="exit"
         >
-          {children}
-        </motion.main>
+          <motion.main style={{ background: "var(--bg)" }}>
+            {children}
+          </motion.main>
+          <Footer />
+        </motion.div>
       </AnimatePresence>
-      <Footer />
     </>
   );
 };

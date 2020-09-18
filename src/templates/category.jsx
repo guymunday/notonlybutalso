@@ -11,8 +11,6 @@ const Hero = styled.header``;
 
 const Headline = styled.p``;
 
-const CatWrapper = Wrapper.withComponent("main");
-
 const Category = ({
   pageContext: { category },
   data: {
@@ -26,7 +24,6 @@ const Category = ({
         pathname={location.pathname}
       />
       <Hero>
-        <Wrapper>
           <Headline>Category</Headline>
           <h1>{category}</h1>
           {(() => {
@@ -36,15 +33,12 @@ const Category = ({
               return <UxHeader />;
             }
           })()}
-        </Wrapper>
       </Hero>
-      <CatWrapper id={website.skipNavId}>
         <Title style={{ marginTop: "4rem" }}>
           {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}
           {totalCount === 1 ? "was" : "were"} tagged with "{category}"
         </Title>
         <Listing posts={nodes} />
-      </CatWrapper>
   </Layout>
 );
 

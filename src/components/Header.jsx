@@ -40,7 +40,7 @@ const HeaderFlex = styled.header`
     span {
       display: block;
       height: 3px;
-      background: var(--primary);
+      background: var(--header);
       margin-top: 5px;
       transform-origin: left center;
       align-self: center;
@@ -52,13 +52,13 @@ const HeaderFlex = styled.header`
   .menu-button {
     width: 10%;
     button {
+      font-size: 14px;
       background: none;
       outline: none;
       border: none;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 450;
       color: var(--copy);
-      padding: 10px;
     }
   }
   .logo-h1 {
@@ -70,7 +70,7 @@ const HeaderFlex = styled.header`
       padding: 0;
       padding: 3px;
       text-decoration: none;
-      color: var(--primary);
+      color: var(--header);
       @media screen and (max-width: 650px) {
         font-size: 25px;
       }

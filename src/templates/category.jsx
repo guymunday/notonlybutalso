@@ -5,7 +5,6 @@ import { Layout, Listing, Wrapper, Title, SEO } from "../components";
 import website from "../../config/website";
 import StrategyHeader from "../components/Listing/StrategyHeader";
 import UxHeader from "../components/Listing/UxHeader";
-import { motion } from "framer-motion";
 
 const Hero = styled.header``;
 

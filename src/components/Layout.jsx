@@ -7,7 +7,6 @@ import "@reach/skip-nav/styles.css";
 
 import Footer from "./Footer";
 import SEO from "./SEO";
-import SkipNavLink from "./SkipNavLink";
 import reset from "../styles/reset";
 import Header from "./Header";
 import Menu from "./Menu";
@@ -36,6 +35,7 @@ const globalStyle = css`
     --copy: #17213b;
     --primary: #007bdf;
     --secondary: #ffa3b0;
+    --header: #007bdf;
     color: var(--copy);
     background-color: var(--bg);
     font-family: "Inter";
@@ -52,6 +52,7 @@ const globalStyle = css`
     --copy: #f2f0eb;
     --primary: #ffa3b0;
     --secondary: #007bdf;
+    --header: #f2f0eb;
   }
 
   h1,
@@ -96,11 +97,9 @@ const duration = 0.5;
 const variants = {
   initial: {
     opacity: 0,
-    y: 100,
   },
   enter: {
     opacity: 1,
-    y: 0,
     transition: {
       duration: duration,
       delay: duration,
@@ -116,7 +115,7 @@ const variants = {
 const Layout = ({ children, data, customSEO }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const html = document.querySelector("html");
+  const html = typeof window !== "undefined" && document.querySelector("html");
 
   useEffect(() => {
     toggleMenu
@@ -127,7 +126,6 @@ const Layout = ({ children, data, customSEO }) => {
   return (
     <>
       <Global styles={globalStyle} />
-      {/* <SkipNavLink /> */}
       <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
       <Menu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
       {!customSEO && <SEO />}

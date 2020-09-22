@@ -8,12 +8,16 @@ const MenuContainer = styled(motion.div)`
   top: 52px;
   left: 0;
   right: 0;
-  bottom: 0;
   overflow: hidden;
   background: var(--bg);
   z-index: 999;
   @media screen and (max-width: 650px) {
     top: 34px;
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 

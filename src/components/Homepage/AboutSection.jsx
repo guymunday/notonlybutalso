@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-const AboutSectionContainer = styled.section`
+export const AboutSectionContainer = styled.section`
   text-align: center;
   border-top: 1px solid var(--copy);
   border-bottom: 1px solid var(--copy);

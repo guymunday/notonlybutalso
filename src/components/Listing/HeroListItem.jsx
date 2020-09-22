@@ -22,7 +22,9 @@ const ItemInner = styled.div`
   flex-direction: column;
   justify-content: space-around;
   a {
+    text-decoration: none;
     h2 {
+      font-size: 2rem;
       padding: 30px 0;
     }
   }
@@ -40,7 +42,7 @@ const HeroImage = styled(motion.div)`
   }
 `;
 
-const ListItem = ({ node, categories }) => {
+const HeroListItem = ({ node, categories }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
 
@@ -92,4 +94,4 @@ const ListItem = ({ node, categories }) => {
   );
 };
 
-export default ListItem;
+export default HeroListItem;

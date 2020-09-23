@@ -13,6 +13,7 @@ const StyledFooter = styled.footer`
     height: 100%;
     padding: 30px;
     .footer-inner {
+      background: var(--bg);
       border: 1px solid var(--copy);
       width: 100%;
       height: 100%;

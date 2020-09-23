@@ -12,6 +12,7 @@ import Header from "./Header";
 import Menu from "./Menu";
 
 import { motion, AnimatePresence } from "framer-motion";
+import Contribute from "./Homepage/Contribute";
 
 const globalStyle = css`
   ${reset}
@@ -36,8 +37,9 @@ const globalStyle = css`
     --primary: #007bdf;
     --secondary: #ffa3b0;
     --header: #007bdf;
+    --bgmain: #fff;
     color: var(--copy);
-    background-color: var(--bg);
+    background-color: var(--bgmain);
     font-family: "Inter";
     font-style: normal;
     font-weight: 450;
@@ -53,6 +55,7 @@ const globalStyle = css`
     --primary: #ffa3b0;
     --secondary: #007bdf;
     --header: #f2f0eb;
+    --bgmain: #000;
   }
 
   h1,
@@ -71,11 +74,9 @@ const globalStyle = css`
   h2 {
     font-family: "Shrikhand";
     font-weight: 400;
-    font-size: 26px;
   }
 
   h3 {
-    font-weight: 450;
   }
 
   a {
@@ -89,6 +90,67 @@ const globalStyle = css`
 
   a.nostyle {
     text-decoration: none;
+  }
+
+  @media (min-width: 575.98px) {
+    h2 {
+      font-size: 1.2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+    h4 {
+      font-size: 1.2rem;
+    }
+    p,
+    strong,
+    a,
+    blockquote {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 767.98px) {
+    h2 {
+      font-size: 1.4rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    h4 {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (min-width: 991.98px) {
+    h2 {
+      font-size: 1.3rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+    }
+    h4 {
+      font-size: 1.3rem;
+    }
+    p,
+    strong,
+    a,
+    blockquote {
+      font-size: 1.1rem;
+    }
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @media (min-width: 1199.98px) {
+    h2 {
+      font-size: 1.4rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    h4 {
+      font-size: 1.4rem;
+    }
   }
 `;
 
@@ -136,8 +198,9 @@ const Layout = ({ children, data, customSEO }) => {
           animate="enter"
           exit="exit"
         >
-          <motion.main style={{ background: "var(--bg)" }}>
+          <motion.main style={{ background: "var(--bgmain)" }}>
             {children}
+          <Contribute />
           </motion.main>
           <Footer />
         </motion.div>

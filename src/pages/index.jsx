@@ -10,31 +10,29 @@ import Contribute from "../components/Homepage/Contribute";
 import HeroListing from "../components/Listing/HeroListing";
 
 const Index = ({ data }) => {
-  const [finishLoading, setFinishLoading] = useState(true);
+  // const [finishLoading, setFinishLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setFinishLoading(false);
-      // sessionStorage.setItem("first_time", "1");
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setFinishLoading(false);
+  //     // sessionStorage.setItem("first_time", "1");
+  //   }, 3000);
+  // }, []);
 
   // && !sessionStorage.getItem("first_time");
 
+  // <AnimatePresence>
+  // {finishLoading && typeof window !== "undefined" ? (
+  //   <h1>hello</h1>
+  // ) : (
+
   return (
-    <AnimatePresence>
-      {finishLoading && typeof window !== "undefined" ? (
-        <h1>hello</h1>
-      ) : (
-        <Layout>
-          <HomeHero />
-          <HeroListing posts={data.posts.nodes} />
-          <AboutSection />
-          <Listing posts={data.posts.nodes} />
-          <Contribute />
-        </Layout>
-      )}
-    </AnimatePresence>
+    <Layout>
+      <HomeHero />
+      <HeroListing posts={data.posts.nodes} />
+      <AboutSection />
+      <Listing posts={data.posts.nodes} />
+    </Layout>
   );
 };
 

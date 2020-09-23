@@ -1,19 +1,22 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import {
-  Layout,
-  Listing,
-  PostWrapper,
-  SliceZone,
-  Title,
-  SEO,
-} from "../components";
+import { Layout, Listing, PostWrapper, SliceZone, SEO } from "../components";
 import Categories from "../components/Listing/Categories";
 import website from "../../config/website";
 import Img from "gatsby-image";
 
-const Hero = styled.header`
+const Hero = styled.section`
+  h1 {
+    font-family: "Shrikhand";
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+  }
+  .gatsby-image-wrapper {
+    margin: 30px 0;
+  }
   div {
     display: flex;
     align-items: baseline;
@@ -38,23 +41,22 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
       />
       <PostWrapper>
         <Hero>
-          <Img
-            fluid={data.hero_image.localFile.childImageSharp.fluid}
-            alt="hello"
-          />
+          {data.hero_image.localFile !== null && (
+            <Img
+              fluid={data.hero_image.localFile.childImageSharp.fluid}
+              alt="hello"
+            />
+          )}
           <h1>{data.title.text}</h1>
-          <div>
-            <h3>Words by {data.author.text}</h3>
-            <h2>
-              {data.date} —{" "}
-              {categories && <Categories categories={categories} />}
-            </h2>
-          </div>
+          <h2>{categories && <Categories categories={categories} />}</h2>
+          <h3>
+            Words by {data.author.text} — {data.date}
+          </h3>
         </Hero>
         <SliceZone allSlices={data.body} />
+        <h3>Words by {data.author.text}</h3>
+        <p>Latest</p>
       </PostWrapper>
-      <Title style={{ marginTop: "4rem" }}>Latest</Title>
-
       <Listing posts={posts.nodes} />
     </Layout>
   );

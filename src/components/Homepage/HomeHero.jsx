@@ -71,7 +71,7 @@ const HomeHero = () => {
   return (
     <HomeHeroSection ref={constraintsRef}>
       {data.allPrismicCategory.edges.map(({ node }) => {
-        // here we map over a random rotate %
+        // here we map over a random rotate
         const rotateMin = -20;
         const rotateMax = 20;
         function randomFromTo(from, to) {
@@ -88,8 +88,6 @@ const HomeHero = () => {
 
         const newY = randomFromTo(minY, maxY);
         const newX = randomFromTo(minX, maxX);
-
-        console.log(node.data.category_image);
 
         return (
           <motion.div
@@ -111,7 +109,7 @@ const HomeHero = () => {
                 alt="hello"
               />
             )}
-            <Link to={`/disciplines/${kebabCase(node.data.name)}`}>
+            <Link to={`/discipline/${kebabCase(node.data.name)}`}>
               {node.data.name}
             </Link>
           </motion.div>

@@ -1,14 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import { Layout, Listing, Wrapper, Title, SEO } from "../components";
+import { Layout, Listing, SEO } from "../components";
 import website from "../../config/website";
 import StrategyHeader from "../components/Listing/StrategyHeader";
 import UxHeader from "../components/Listing/UxHeader";
 
 const Hero = styled.header``;
-
-const Headline = styled.p``;
 
 const Category = ({
   pageContext: { category },
@@ -18,26 +16,25 @@ const Category = ({
   location,
 }) => (
   <Layout>
-      <SEO
-        title={`Category: ${category} | ${website.titleAlt}`}
-        pathname={location.pathname}
-      />
-      <Hero>
-          <Headline>Category</Headline>
-          <h1>{category}</h1>
-          {(() => {
-            if (category === "Strat") {
-              return <StrategyHeader />;
-            } else if (category === "UX") {
-              return <UxHeader />;
-            }
-          })()}
-      </Hero>
-        <Title style={{ marginTop: "4rem" }}>
-          {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}
-          {totalCount === 1 ? "was" : "were"} tagged with "{category}"
-        </Title>
-        <Listing posts={nodes} />
+    <SEO
+      title={`Category: ${category} | ${website.titleAlt}`}
+      pathname={location.pathname}
+    />
+    <Hero>
+      <h1>{category}</h1>
+      {(() => {
+        if (category === "Strategy") {
+          return <StrategyHeader />;
+        } else if (category === "UX") {
+          return <UxHeader />;
+        }
+      })()}
+    </Hero>
+    <p style={{ marginTop: "4rem" }}>
+      {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}
+      {totalCount === 1 ? "was" : "were"} tagged with "{category}"
+    </p>
+    <Listing posts={nodes} />
   </Layout>
 );
 

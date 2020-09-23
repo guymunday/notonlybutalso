@@ -31,16 +31,20 @@ const globalStyle = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   body {
     --bg: #f2f0eb;
     --copy: #17213b;
     --primary: #007bdf;
     --secondary: #ffa3b0;
     --header: #007bdf;
+    --offwhite: #f2f0eb;
     --bgmain: #fff;
+    --text1: "Inter", Helvetica, sans-serif;
+    --text2: "Shrikhand", serif;
     color: var(--copy);
     background-color: var(--bgmain);
-    font-family: "Inter";
+    font-family: "Inter", Helvetica, sans-serif;
     font-style: normal;
     font-weight: 450;
     font-kerning: none;
@@ -52,10 +56,13 @@ const globalStyle = css`
   body.dark {
     --bg: #17213b;
     --copy: #f2f0eb;
+    --offwhite: #f2f0eb;
     --primary: #ffa3b0;
     --secondary: #007bdf;
     --header: #f2f0eb;
     --bgmain: #000;
+    --text1: "Inter", Helvetica, sans-serif;
+    --text2: "Shrikhand", serif;
   }
 
   h1,
@@ -80,7 +87,7 @@ const globalStyle = css`
   }
 
   a {
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 450;
     &:hover,
     &:focus {
@@ -200,7 +207,7 @@ const Layout = ({ children, data, customSEO }) => {
         >
           <motion.main style={{ background: "var(--bgmain)" }}>
             {children}
-          <Contribute />
+            <Contribute />
           </motion.main>
           <Footer />
         </motion.div>

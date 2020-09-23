@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from "react";
-import styled from "@emotion/styled";
 import { Link } from "gatsby";
 import Categories from "./Categories";
 import Img from "gatsby-image";
@@ -47,20 +46,25 @@ const ListItem = ({ node, categories }) => {
               fluid={node.data.hero_image.localFile.childImageSharp.fluid}
               alt={node.data.title.text}
             />
-            )}
           </HeroImage>
         )}
       </AnimatePresence>
       <Item
         className={`${kebabCase(categories[0])}`}
         onMouseEnter={() => {
-          setIsHovered(!isHovered), setColourChange(!colourChange);
+          setIsHovered(true), setColourChange(!colourChange);
         }}
         onMouseLeave={() => {
-          setIsHovered(!isHovered), setColourChange(!colourChange);
+          setIsHovered(false), setColourChange(!colourChange);
         }}
-        onClick={() => setIsHovered(!isHovered)}
-        style={{ background: colourChange && "var(--primary)" }}
+        onClick={() => setIsHovered(false)}
+        style={{ background: colourChange && "var(--secondary)" }}
+        whileTap={{ scale: 0.98 }}
+        whileHover={{
+          scale: 1.010,
+          boxShadow: "5px 5px 0px #ffa3b0",
+        }}
+        transition={{ ease: "easeOut", duration: 0.3 }}
       >
         <ItemInner>
           <h1>{categories && <Categories categories={categories} />}</h1>

@@ -24,6 +24,14 @@ const Hero = styled.section`
   }
 `;
 
+const Credits = styled.div`
+  margin: 60px 0;
+  text-align: center;
+  h3 {
+    font-size: 1.2rem;
+  }
+`;
+
 const Post = ({ data: { prismicPost, posts }, location }) => {
   const { data } = prismicPost;
   let categories = false;
@@ -54,9 +62,11 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
           </h3>
         </Hero>
         <SliceZone allSlices={data.body} />
-        <h3>Words by {data.author.text}</h3>
-        <p>Latest</p>
+        <Credits>
+          <h3>Words by {data.author.text}</h3>
+        </Credits>
       </PostWrapper>
+      <p>Latest</p>
       <Listing posts={posts.nodes} />
     </Layout>
   );

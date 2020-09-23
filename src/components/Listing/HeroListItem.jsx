@@ -46,19 +46,18 @@ const HeroListItem = ({ node, categories }) => {
               fluid={node.data.hero_image.localFile.childImageSharp.fluid}
               alt={node.data.title.text}
             />
-            )}
           </HeroImage>
         )}
       </AnimatePresence>
       <Item
         className={`${kebabCase(categories[0])}`}
         onMouseEnter={() => {
-          setIsHovered(!isHovered), setColourChange(!colourChange);
+          setIsHovered(true), setColourChange(!colourChange);
         }}
         onMouseLeave={() => {
-          setIsHovered(!isHovered), setColourChange(!colourChange);
+          setIsHovered(false), setColourChange(!colourChange);
         }}
-        onClick={() => setIsHovered(!isHovered)}
+        onClick={() => setIsHovered(false)}
         style={{ background: colourChange && "var(--primary)" }}
       >
         <ItemInner>

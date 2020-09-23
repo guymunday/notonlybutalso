@@ -1,18 +1,31 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-export const Item = styled.div`
+export const Item = styled(motion.div)`
   width: 100%;
   height: 300px;
   background: var(--bg);
-  border: 1px solid var(--copy);
-  box-shadow: 3px 3px 0px var(--copy);
+  /* border: 1px solid var(--secondary); */
+  /* box-shadow: 5px 5px 0px var(--secondary); */
   margin: 10px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   transition: 0.3s ease background;
+  h1 {
+    a {
+      color: var(--secondary);
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: var(--secondary);
+      transition: background 0.2s ease;
+      :hover {
+        background: yellow;
+      }
+    }
+  }
 `;
 
 export const ItemInner = styled.div`
@@ -30,12 +43,6 @@ export const ItemInner = styled.div`
     h3 {
       font-size: 1.1rem;
       font-weight: 450;
-    }
-  }
-  h1 {
-    a {
-      font-size: 1.6rem;
-      font-weight: 600;
     }
   }
 `;
@@ -63,9 +70,9 @@ export const HeroImage = styled(motion.div)`
 export const HeroImageInner = styled(motion.div)`
   position: relative;
   width: 30%;
-  height: 100%;
   overflow: hidden;
   .gatsby-image-wrapper {
     object-fit: cover;
+    height: 100%;
   }
 `;

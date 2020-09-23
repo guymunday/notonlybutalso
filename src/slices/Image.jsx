@@ -3,8 +3,8 @@ import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 
 const Content = styled.div`
-
-`
+  margin: 45px 0;
+`;
 
 const Image = ({ input }) => (
   <Content>

@@ -8,8 +8,8 @@ const kebabCase = require("lodash.kebabcase");
 
 const HomeHeroSection = styled.section`
   width: 100%;
-  height: 60vh;
-  background: var(--primary);
+  height: 70vh;
+  background: var(--copy);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -28,6 +28,10 @@ const HomeHeroSection = styled.section`
     ::active,
     :focus {
       cursor: all-scroll;
+    }
+    @media screen and (max-width: 650px) {
+      width: 120px;
+      height: 120px;
     }
     a {
       position: absolute;
@@ -72,19 +76,13 @@ const HomeHero = () => {
     <HomeHeroSection ref={constraintsRef}>
       {data.allPrismicCategory.edges.map(({ node }) => {
         // here we map over a random rotate
-        const rotateMin = -20;
-        const rotateMax = 20;
         function randomFromTo(from, to) {
           return Math.floor(Math.random() * (to - from + 1) + from);
         }
-        const newRotate = randomFromTo(rotateMin, rotateMax);
-
-        // here we map over a random placement
-
-        const minY = 30;
-        const maxY = 60;
-        const minX = 30;
-        const maxX = 60;
+        const minY = 20;
+        const maxY = 70;
+        const minX = 20;
+        const maxX = 70;
 
         const newY = randomFromTo(minY, maxY);
         const newX = randomFromTo(minX, maxX);
@@ -96,9 +94,8 @@ const HomeHero = () => {
             whileTap={{ scale: 1.1 }}
             drag
             dragConstraints={constraintsRef}
-            dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
+            dragTransition={{ bounceStiffness: 400, bounceDamping: 8 }}
             style={{
-              transform: `rotate(${newRotate}deg)`,
               top: `${newY}%`,
               left: `${newX}%`,
             }}

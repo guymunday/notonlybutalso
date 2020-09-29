@@ -7,6 +7,8 @@ const List = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 1320px;
+  margin: auto;
   padding: 50px;
   position: relative;
 `;

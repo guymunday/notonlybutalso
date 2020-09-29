@@ -11,7 +11,7 @@ const List = styled.div`
   padding: 50px;
 `;
 
-const Listing = ({ posts }) => {
+const ExploreListing = ({ posts }) => {
   return (
     <List>
       {posts.map((post) => {
@@ -23,16 +23,14 @@ const Listing = ({ posts }) => {
           );
         }
 
-        if (!post.data.hero_article && !post.data.how_you_got_here) {
-          return (
-            <div>
-              <ListItem key={post.uid} node={post} categories={categories} />{" "}
-            </div>
-          );
-        }
+        return (
+          <>
+            <ListItem key={post.uid} node={post} categories={categories} />{" "}
+          </>
+        );
       })}
     </List>
   );
 };
 
-export default Listing;
+export default ExploreListing;

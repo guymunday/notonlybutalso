@@ -3,35 +3,20 @@ import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import { Layout, Listing } from "../components";
 // import Img from "gatsby-image";
-import { motion, AnimatePresence } from "framer-motion";
 import AboutSection from "../components/Homepage/AboutSection";
 import HomeHero from "../components/Homepage/HomeHero";
-import Contribute from "../components/Homepage/Contribute";
 import HeroListing from "../components/Listing/HeroListing";
+import GotHereListing from "../components/Listing/GotHereListing";
 
 const Index = ({ data }) => {
-  // const [finishLoading, setFinishLoading] = useState(true);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setFinishLoading(false);
-  //     // sessionStorage.setItem("first_time", "1");
-  //   }, 3000);
-  // }, []);
-
-  // && !sessionStorage.getItem("first_time");
-
-  // <AnimatePresence>
-  // {finishLoading && typeof window !== "undefined" ? (
-  //   <h1>hello</h1>
-  // ) : (
-
   return (
     <Layout>
       <HomeHero />
-      <HeroListing posts={data.posts.nodes} />
       <AboutSection />
-      <Listing posts={data.posts.nodes} />
+      <HeroListing posts={data.posts.nodes} />
+      <GotHereListing posts={data.posts.nodes} />
+      {/* <Listing posts={data.posts.nodes} /> */}
+      <HeroListing posts={data.posts.nodes} />
     </Layout>
   );
 };
@@ -48,6 +33,7 @@ export const pageQuery = graphql`
         uid
         data {
           hero_article
+          how_you_got_here
           title {
             text
           }

@@ -56,7 +56,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
             />
           )}
           <h1>{data.title.text}</h1>
-          <h2>{categories && <Categories categories={categories} />}</h2>
+          {categories && <Categories categories={categories} />}
           <h3>
             Words by {data.author.text} — {data.date}
           </h3>
@@ -111,6 +111,27 @@ export const pageQuery = graphql`
           }
         }
         body {
+          ... on PrismicPostBodyWhoWhatWhere {
+            id
+            slice_type
+            primary {
+              introduction {
+                html
+              }
+              what {
+                html
+              }
+              based {
+                html
+              }
+              where {
+                html
+              }
+              who {
+                html
+              }
+            }
+          }
           ... on PrismicPostBodyImageCaption {
             slice_type
             id
@@ -168,7 +189,7 @@ export const pageQuery = graphql`
       }
     }
     posts: allPrismicPost(
-      limit: 2
+      limit: 3
       sort: { fields: [data___date], order: DESC }
       filter: { uid: { ne: $uid } }
     ) {

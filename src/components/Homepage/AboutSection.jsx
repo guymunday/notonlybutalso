@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 
 export const AboutSectionContainer = styled.section`
   text-align: center;
-  border-top: 1px solid var(--copy);
-  border-bottom: 1px solid var(--copy);
   div {
     h2 {
       font-size: 18px;

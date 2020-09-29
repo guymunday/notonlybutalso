@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
-const StyledFooter = styled.footer`
+const StyledFooter = styled(motion.footer)`
   position: sticky;
   bottom: 0;
   width: 100%;
@@ -14,28 +15,51 @@ const StyledFooter = styled.footer`
     padding: 30px;
     .footer-inner {
       background: var(--bg);
-      border: 1px solid var(--copy);
+      border: 2px solid var(--copy);
       width: 100%;
       height: 100%;
       display: flex;
-      align-items:center;
-      justify-content:space-around;
+      align-items: center;
+      justify-content: space-around;
     }
   }
 `;
 
-class Footer extends Component {
-  render() {
-    return (
-      <StyledFooter>
-        <div className="footer-padding">
-          <div className="footer-inner">
-            <h2>Footer</h2>
-          </div>
+const duration = 1;
+
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: duration,
+      delay: duration,
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    y: 100,
+    transition: { duration: duration, delay: duration },
+  },
+};
+
+const Footer = () => {
+  return (
+    <StyledFooter
+      variants={variants}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+    >
+      <div className="footer-padding">
+        <div className="footer-inner">
+          <h2>Footer</h2>
         </div>
-      </StyledFooter>
-    );
-  }
-}
+      </div>
+    </StyledFooter>
+  );
+};
 
 export default Footer;

@@ -17,7 +17,7 @@ const LogoContainer = styled.div`
     align-items: baseline;
     position: relative;
     overflow: hidden;
-    height: 52px;
+    height: 58px;
     margin: auto;
     z-index: 4;
     text-decoration: none;
@@ -40,11 +40,12 @@ const LogoContainer = styled.div`
       display: block;
       height: 3px;
       background: var(--header);
-      margin-top: 5px;
+      margin-top: -6px;
       transform-origin: left center;
       align-self: center;
       @media screen and (max-width: 650px) {
         height: 2px;
+        margin-top: 2px;
       }
     }
   }

@@ -62,7 +62,6 @@ const ListItem = ({ node, categories }) => {
         whileTap={{ scale: 0.98 }}
         whileHover={{
           scale: 1.010,
-          boxShadow: "5px 5px 0px #ffa3b0",
         }}
         transition={{ ease: "easeOut", duration: 0.3 }}
       >

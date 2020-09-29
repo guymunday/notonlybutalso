@@ -55,7 +55,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-slick": "^0.27.11",
     "react-typography": "^0.16.19",
+    "slick-carousel": "^1.8.1",
     "typeface-lora": "^0.0.72",
     "typeface-source-sans-pro": "^1.1.5",
     "typography": "^0.16.19"

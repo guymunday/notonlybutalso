@@ -5,8 +5,8 @@ export const Item = styled(motion.div)`
   width: 100%;
   height: 300px;
   background: var(--bg);
-  /* border: 1px solid var(--secondary); */
-  /* box-shadow: 5px 5px 0px var(--secondary); */
+  border-radius: 20px;
+  overflow: hidden;
   margin: 10px 0;
   display: flex;
   flex-direction: row;

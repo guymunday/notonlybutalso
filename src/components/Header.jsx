@@ -11,15 +11,16 @@ const HeaderFlex = styled.header`
     right: 16px;
     z-index: 999;
     @media screen and (max-width: 650px) {
-      top: 6px;
+      top: 5px;
     }
     button {
       font-size: 16px;
+      font-family: var(--text2);
       background: none;
       outline: none;
       border: none;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 400;
       color: var(--copy);
     }
   }

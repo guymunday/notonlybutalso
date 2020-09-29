@@ -39,11 +39,17 @@ const globalStyle = css`
     --secondary: #ffa3b0;
     --header: #007bdf;
     --offwhite: #f2f0eb;
-    --bgmain: #fff;
     --text1: "Inter", Helvetica, sans-serif;
     --text2: "Shrikhand", serif;
+    --pink: #ffa3b0;
+    --shadow: 0 1.3px 2.2px rgba(0, 0, 0, 0.009),
+      0 2px 3.8px rgba(0, 0, 0, 0.017), 0 2.4px 5.1px rgba(0, 0, 0, 0.022),
+      0 2.7px 6.1px rgba(0, 0, 0, 0.026), 0 2.9px 7px rgba(0, 0, 0, 0.028),
+      0 3.1px 8.2px rgba(0, 0, 0, 0.029), 0 3.3px 10.3px rgba(0, 0, 0, 0.03),
+      0 3.5px 14.4px rgba(0, 0, 0, 0.03), 0 3.8px 24.2px rgba(0, 0, 0, 0.033),
+      0 4px 80px rgba(0, 0, 0, 0.04);
     color: var(--copy);
-    background-color: var(--bgmain);
+    background-color: var(--bg);
     font-family: "Inter", Helvetica, sans-serif;
     font-style: normal;
     font-weight: 450;
@@ -51,6 +57,7 @@ const globalStyle = css`
     font-size: 18px;
     line-height: 1.45;
     position: relative;
+    overflow-x: hidden;
   }
 
   body.dark {
@@ -60,9 +67,15 @@ const globalStyle = css`
     --primary: #ffa3b0;
     --secondary: #007bdf;
     --header: #f2f0eb;
-    --bgmain: #000;
     --text1: "Inter", Helvetica, sans-serif;
     --text2: "Shrikhand", serif;
+    --pink: #ffa3b0;
+    --shadow: 0 1.3px 2.2px rgba(0, 0, 0, 0.046),
+      0 2px 3.8px rgba(0, 0, 0, 0.083), 0 2.4px 5.1px rgba(0, 0, 0, 0.112),
+      0 2.7px 6.1px rgba(0, 0, 0, 0.131), 0 2.9px 7px rgba(0, 0, 0, 0.142),
+      0 3.1px 8.2px rgba(0, 0, 0, 0.147), 0 3.3px 10.3px rgba(0, 0, 0, 0.148),
+      0 3.5px 14.4px rgba(0, 0, 0, 0.152), 0 3.8px 24.2px rgba(0, 0, 0, 0.167),
+      0 4px 80px rgba(0, 0, 0, 0.2);
   }
 
   h1,
@@ -199,18 +212,17 @@ const Layout = ({ children, data, customSEO }) => {
       <Menu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
       {!customSEO && <SEO />}
       <AnimatePresence exitBeforeEnter>
-        <motion.div
+        <motion.main
           variants={variants}
           initial="initial"
           animate="enter"
           exit="exit"
+          style={{ background: "var(--bg)", boxShadow: "var(--shadow)" }}
         >
-          <motion.main style={{ background: "var(--bgmain)" }}>
-            {children}
-            <Contribute />
-          </motion.main>
-          <Footer />
-        </motion.div>
+          {children}
+          <Contribute />
+        </motion.main>
+        <Footer />
       </AnimatePresence>
     </>
   );

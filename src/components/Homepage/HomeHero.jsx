@@ -21,8 +21,7 @@ const HomeHeroSection = styled.section`
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    background: var(--secondary);
-    box-shadow: 1px 1px 5px #000;
+    box-shadow: var(--shadowinverse);
     overflow: hidden;
     cursor: all-scroll;
     ::active,
@@ -79,10 +78,10 @@ const HomeHero = () => {
         function randomFromTo(from, to) {
           return Math.floor(Math.random() * (to - from + 1) + from);
         }
-        const minY = 20;
-        const maxY = 70;
-        const minX = 20;
-        const maxX = 70;
+        const minY = 30;
+        const maxY = 60;
+        const minX = 30;
+        const maxX = 60;
 
         const newY = randomFromTo(minY, maxY);
         const newX = randomFromTo(minX, maxX);
@@ -106,9 +105,9 @@ const HomeHero = () => {
                 alt="hello"
               />
             )}
-            <Link to={`/discipline/${kebabCase(node.data.name)}`}>
+            {/* <Link to={`/discipline/${kebabCase(node.data.name)}`}>
               {node.data.name}
-            </Link>
+            </Link> */}
           </motion.div>
         );
       })}

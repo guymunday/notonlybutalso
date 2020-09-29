@@ -55,6 +55,15 @@ export const pageQuery = graphql`
               document {
                 data {
                   name
+                  category_image {
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 1200, quality: 90) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

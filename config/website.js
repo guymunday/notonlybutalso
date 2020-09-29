@@ -4,14 +4,14 @@ module.exports = {
   titleAlt: "Not Only — But Also", // Title for JSONLD
   description: "Description Goes Here...",
   headline: "Writing and publishing content for LekoArts", // Headline for schema.org JSONLD
-  url: "https://prismic.lekoarts.de", // Domain of your site. No trailing slash!
+  url: "https://notonlybutalso.org", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
   logo: "/logos/logo-1024.png", // Used for SEO
   ogLanguage: "en_US", // Facebook Language
 
   // JSONLD / Manifest
   favicon: "src/favicon.png", // Used for manifest favicon generation
-  shortName: "Prismic", // shortname for manifest. MUST be shorter than 12 characters
+  shortName: "Not Only", // shortname for manifest. MUST be shorter than 12 characters
   author: "Guy Munday", // Author for schemaORGJSONLD
   themeColor: "#3D63AE",
   backgroundColor: "#EBEDF2",

@@ -8,48 +8,11 @@ import styled from "@emotion/styled";
 
 const kebabCase = require("lodash.kebabcase");
 
-const Item = styled(motion.div)`
-  width: 100%;
-  max-width: 900px;
-  height: 200px;
-  background: var(--bg);
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 20px auto;
-  border: 2px solid var(--pink);
-  transition: 0.3s ease background;
-  box-shadow: var(--shadow);
-  a {
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-`;
-
-const ItemInner = styled.div`
-  width: 70%;
-  height: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  h2 {
-    font-size: 1.4rem;
-  }
-  h3 {
-    font-size: 0.9rem;
-    font-weight: 450;
-  }
-`;
-
 const HeroImage = styled(motion.div)`
   position: fixed;
   pointer-events: none;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   overflow: hidden;
   background: var(--primary);
@@ -66,12 +29,43 @@ const HeroImage = styled(motion.div)`
   }
 `;
 
+const Item = styled(motion.div)`
+  width: 100%;
+  max-width: 900px;
+  height: 200px;
+  background: var(--bg);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 2px solid var(--pink);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+`;
+
+const ItemInner = styled.div`
+  width: 70%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  a {
+    h2 {
+      font-size: 1rem;
+    }
+  }
+`;
+
 const HeroImageInner = styled(motion.div)`
   width: 30%;
   overflow: hidden;
-  .gatsby-image-wrapper {
-    object-fit: cover;
-    height: 100%;
+  a {
+    .gatsby-image-wrapper {
+      object-fit: cover;
+      height: 100%;
+    }
   }
 `;
 
@@ -91,19 +85,22 @@ const HeroListItem = ({ node, categories }) => {
   return (
     <>
       <AnimatePresence>
-        {node.data.hero_image.localFile !== null && isHovered && (
+        {isHovered && (
           <HeroImage
             className="hero-image"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             style={{
-              top: `calc(${coords.y}px - 100px)`,
+              top: `calc(${coords.y}px - 75px)`,
               left: `calc(${coords.x}px + 50px)`,
             }}
           >
             <Img
-              fluid={node.data.hero_image.localFile.childImageSharp.fluid}
+              fluid={
+                node.data.categories[0].category.document[0].data.category_image
+                  .localFile.childImageSharp.fluid
+              }
               alt={node.data.title.text}
             />
           </HeroImage>
@@ -121,28 +118,29 @@ const HeroListItem = ({ node, categories }) => {
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
       >
-        <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
-          <HeroImageInner
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
-          >
+        <HeroImageInner
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+        >
+          <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
             {node.data.hero_image.localFile !== null && (
               <Img
                 fluid={node.data.hero_image.localFile.childImageSharp.fluid}
                 alt={node.data.title.text}
               />
             )}
-          </HeroImageInner>
-          <ItemInner>
-            {categories && <Categories categories={categories} />}
-
+          </Link>
+        </HeroImageInner>
+        <ItemInner>
+          {categories && <Categories categories={categories} />}
+          <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
             <h2>{node.data.title.text}</h2>
             <h3>
               Words by {node.data.author.text} — {node.data.date}
             </h3>
-          </ItemInner>
-        </Link>
+          </Link>
+        </ItemInner>
       </Item>
     </>
   );

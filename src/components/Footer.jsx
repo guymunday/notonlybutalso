@@ -1,21 +1,20 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+import SvgLogo from "./SvgLogo";
 
 const StyledFooter = styled(motion.footer)`
   position: sticky;
   bottom: 0;
   width: 100%;
   z-index: -1;
-  height: 500px;
+  height: 300px;
   display: flex;
   .footer-padding {
     width: 100%;
     height: 100%;
-    padding: 30px;
     .footer-inner {
-      background: var(--bg);
-      border: 2px solid var(--copy);
+      background: var(--pink);
       width: 100%;
       height: 100%;
       display: flex;
@@ -55,7 +54,7 @@ const Footer = () => {
     >
       <div className="footer-padding">
         <div className="footer-inner">
-          <h2>Footer</h2>
+          <SvgLogo color="var(--offwhite)" size="300" />
         </div>
       </div>
     </StyledFooter>

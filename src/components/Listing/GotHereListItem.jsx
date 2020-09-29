@@ -9,7 +9,7 @@ import styled from "@emotion/styled";
 const kebabCase = require("lodash.kebabcase");
 
 const Item = styled(motion.div)`
-  width: 500px;
+  width: 450px;
   height: 500px;
   margin: 50px;
   flex-grow: 1;

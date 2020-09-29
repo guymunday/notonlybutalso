@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
+import SvgLogo from "./SvgLogo";
 
 const HeaderFlex = styled.header`
   .menu-button {
@@ -24,6 +25,16 @@ const HeaderFlex = styled.header`
       color: var(--copy);
     }
   }
+  .svg-logo {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
+  }
 `;
 
 const Header = ({ toggleMenu, setToggleMenu }) => {
@@ -31,6 +42,9 @@ const Header = ({ toggleMenu, setToggleMenu }) => {
     <>
       <Logo />
       <HeaderFlex>
+        <div className="svg-logo">
+          <SvgLogo color="var(--header)" size="40" />
+        </div>
         <ThemeToggle />
         <div className="menu-button">
           <motion.button

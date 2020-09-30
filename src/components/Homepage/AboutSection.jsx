@@ -2,18 +2,23 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+import SvgLogo from "../SvgLogo";
 
 export const AboutSectionContainer = styled.section`
   text-align: center;
+  padding: 50px 0;
   div {
+    padding: 0 20px;
     h2 {
-      font-size: 18px;
+      font-family: var(--text1);
       font-weight: 600;
-      font-family: "Inter", sans-serif;
+      font-size: 1rem;
     }
     p {
-      max-width: 600px;
-      margin: 50px auto;
+      font-size: 1.3rem;
+      font-weight: 450;
+      max-width: 820px;
+      margin: 35px auto 45px auto;
     }
   }
 `;
@@ -22,7 +27,7 @@ const AboutSection = () => {
   return (
     <AboutSectionContainer>
       <div>
-        <h2>Not Only — But Also</h2>
+        <SvgLogo size="100" color="var(--header)" />
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever

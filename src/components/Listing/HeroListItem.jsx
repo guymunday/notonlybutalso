@@ -4,70 +4,14 @@ import Categories from "./Categories";
 import Img from "gatsby-image";
 import { AnimatePresence, motion } from "framer-motion";
 import useEventListener from "../../hooks/useEventListener";
-import styled from "@emotion/styled";
+import {
+  Item,
+  ItemInner,
+  HeroImage,
+  HeroImageInner,
+} from "../../styles/listingStyles";
 
 const kebabCase = require("lodash.kebabcase");
-
-const HeroImage = styled(motion.div)`
-  position: fixed;
-  pointer-events: none;
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--primary);
-  box-shadow: var(--shadow);
-  z-index: 997;
-  h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .gatsby-image-wrapper {
-    object-fit: cover;
-  }
-`;
-
-const Item = styled(motion.div)`
-  width: 100%;
-  max-width: 900px;
-  height: 200px;
-  background: var(--bg);
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 20px auto;
-  border: 2px solid var(--pink);
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-`;
-
-const ItemInner = styled.div`
-  width: 70%;
-  height: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  a {
-    h2 {
-      font-size: 1rem;
-    }
-  }
-`;
-
-const HeroImageInner = styled(motion.div)`
-  width: 30%;
-  overflow: hidden;
-  a {
-    .gatsby-image-wrapper {
-      object-fit: cover;
-      height: 100%;
-    }
-  }
-`;
 
 const HeroListItem = ({ node, categories }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -82,6 +26,7 @@ const HeroListItem = ({ node, categories }) => {
   );
 
   useEventListener("mousemove", imageHandler);
+
   return (
     <>
       <AnimatePresence>
@@ -133,13 +78,14 @@ const HeroListItem = ({ node, categories }) => {
           </Link>
         </HeroImageInner>
         <ItemInner>
-          {categories && <Categories categories={categories} />}
           <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
             <h2>{node.data.title.text}</h2>
-            <h3>
+            <h3>{node.data.title_two.text}</h3>
+            {/* <h3>
               Words by {node.data.author.text} — {node.data.date}
-            </h3>
+            </h3> */}
           </Link>
+          {categories && <Categories categories={categories} />}
         </ItemInner>
       </Item>
     </>

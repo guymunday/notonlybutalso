@@ -1,60 +1,15 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-export const Item = styled(motion.div)`
-  width: 100%;
-  height: 300px;
-  background: var(--bg);
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 10px 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  transition: 0.3s ease background;
-  h1 {
-    a {
-      color: var(--secondary);
-      font-size: 1.6rem;
-      font-weight: 600;
-      text-decoration: underline;
-      text-decoration-color: var(--secondary);
-      transition: background 0.2s ease;
-      :hover {
-        background: yellow;
-      }
-    }
-  }
-`;
-
-export const ItemInner = styled.div`
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 20px;
-  a {
-    text-decoration: none;
-    h2 {
-      font-size: 2rem;
-      padding: 20px 0;
-    }
-    h3 {
-      font-size: 1.1rem;
-      font-weight: 450;
-    }
-  }
-`;
-
 export const HeroImage = styled(motion.div)`
   position: fixed;
   pointer-events: none;
-  height: 300px;
-  width: 300px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
   overflow: hidden;
   background: var(--primary);
-  box-shadow: 1px 1px 5px #000000;
+  box-shadow: var(--shadow);
   z-index: 997;
   h1 {
     position: absolute;
@@ -67,12 +22,70 @@ export const HeroImage = styled(motion.div)`
   }
 `;
 
+export const Item = styled(motion.div)`
+  width: 100%;
+  max-width: 900px;
+  height: 200px;
+  background: var(--bg);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 2px solid var(--pink);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  @media screen and (max-width: 550px) {
+    height: 500px;
+    flex-direction: column;
+  }
+`;
+
+export const ItemInner = styled.div`
+  width: 70%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    height: 55%;
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    font-size: 0.8rem;
+    h2 {
+      font-size: 1.3rem;
+      @media screen and (max-width: 980px) {
+        font-size: 1.1rem;
+      }
+    }
+    h3 {
+      font-size: 1.12rem;
+      font-weight: 450;
+      margin-top: 5px;
+      @media screen and (max-width: 980px) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+`;
+
 export const HeroImageInner = styled(motion.div)`
-  position: relative;
   width: 30%;
   overflow: hidden;
-  .gatsby-image-wrapper {
-    object-fit: cover;
-    height: 100%;
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    height: 45%;
+  }
+  a {
+    .gatsby-image-wrapper {
+      object-fit: cover;
+      height: 100%;
+    }
   }
 `;

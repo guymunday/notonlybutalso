@@ -8,6 +8,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const SectionTitle = styled.h3`
+  text-align: center;
+  margin-top: 60px;
+`
+
 const GotHereListing = ({ posts }) => {
   const sliderSettings = {
     infinite: true,
@@ -21,10 +26,10 @@ const GotHereListing = ({ posts }) => {
 
   return (
     <>
-      <h3 style={{ textAlign: "center" }}>How I got here</h3>
+      <SectionTitle>How I got here</SectionTitle>
       <Slider
         {...sliderSettings}
-        style={{ cursor: "grab", height: 560, zIndex: 9 }}
+        style={{ cursor: "grab", height: 560, zIndex: 9, margin: "0 0 80px 0" }}
       >
         {posts.map((post) => {
           let categories = false;

@@ -16,7 +16,6 @@ const kebabCase = require("lodash.kebabcase");
 const ListItem = ({ node, categories }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [colourChange, setColourChange] = useState(false);
 
   const imageHandler = useCallback(
     ({ clientX, clientY }) => {
@@ -31,19 +30,22 @@ const ListItem = ({ node, categories }) => {
   return (
     <>
       <AnimatePresence>
-        {node.data.hero_image.localFile !== null && isHovered && (
+        {isHovered && (
           <HeroImage
             className="hero-image"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             style={{
-              top: `calc(${coords.y}px / 2)`,
-              left: `calc(${coords.x}px + 100px)`,
+              top: `calc(${coords.y}px - 75px)`,
+              left: `calc(${coords.x}px + 50px)`,
             }}
           >
             <Img
-              fluid={node.data.hero_image.localFile.childImageSharp.fluid}
+              fluid={
+                node.data.categories[0].category.document[0].data.category_image
+                  .localFile.childImageSharp.fluid
+              }
               alt={node.data.title.text}
             />
           </HeroImage>
@@ -52,44 +54,39 @@ const ListItem = ({ node, categories }) => {
       <Item
         className={`${kebabCase(categories[0])}`}
         onMouseEnter={() => {
-          setIsHovered(true), setColourChange(!colourChange);
+          setIsHovered(true);
         }}
         onMouseLeave={() => {
-          setIsHovered(false), setColourChange(!colourChange);
+          setIsHovered(false);
         }}
         onClick={() => setIsHovered(false)}
-        style={{ background: colourChange && "var(--secondary)" }}
+        whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
-        whileHover={{
-          scale: 1.010,
-        }}
-        transition={{ ease: "easeOut", duration: 0.3 }}
       >
+        <HeroImageInner
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+        >
+          <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
+            {node.data.hero_image.localFile !== null && (
+              <Img
+                fluid={node.data.hero_image.localFile.childImageSharp.fluid}
+                alt={node.data.title.text}
+              />
+            )}
+          </Link>
+        </HeroImageInner>
         <ItemInner>
-          <h1>{categories && <Categories categories={categories} />}</h1>
           <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
             <h2>{node.data.title.text}</h2>
-            <h3>
+            {/* <h3>{node.data.title_two.text}</h3> */}
+            {/* <h3>
               Words by {node.data.author.text} — {node.data.date}
-            </h3>
+            </h3> */}
           </Link>
+          {categories && <Categories categories={categories} />}
         </ItemInner>
-        <AnimatePresence>
-          {!isHovered && (
-            <HeroImageInner
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
-            >
-              {node.data.hero_image.localFile !== null && (
-                <Img
-                  fluid={node.data.hero_image.localFile.childImageSharp.fluid}
-                  alt={node.data.title.text}
-                />
-              )}
-            </HeroImageInner>
-          )}
-        </AnimatePresence>
       </Item>
     </>
   );

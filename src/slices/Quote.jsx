@@ -6,26 +6,22 @@ const BlockQuote = styled.blockquote`
   font-family: var(--text2);
   font-weight: 400;
   font-size: 3rem;
-  div {
-    p {
-      font-family: var(--text2);
-      font-weight: 400;
-      font-size: 1.6rem;
-      text-align: center;
-      :before {
-        content: "“";
-      }
-      :after {
-        content: "”";
-      }
+  p {
+    font-family: var(--text2);
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-align: center;
+    :before {
+      content: "“";
+    }
+    :after {
+      content: "”";
     }
   }
 `;
 
 const Quote = ({ input }) => (
-  <BlockQuote>
-    <div dangerouslySetInnerHTML={{ __html: input.primary.quote.html }} />
-  </BlockQuote>
+  <BlockQuote dangerouslySetInnerHTML={{ __html: input.primary.quote.html }} />
 );
 
 export default Quote;

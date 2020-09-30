@@ -10,7 +10,11 @@ export default class Categories extends Component {
     return (
       <div>
         {categories.map((cat, i) => (
-          <Link key={cat} to={`/discipline/${kebabCase(cat)}`}>
+          <Link
+            key={cat}
+            to={`/${kebabCase(cat)}`}
+            style={{ display: "inline" }}
+          >
             {!!i && ", "}
             {cat}
           </Link>

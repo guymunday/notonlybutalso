@@ -109,11 +109,12 @@ const globalStyle = css`
   }
 
   a {
-    text-decoration: underline;
-    font-weight: 450;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
     &:hover,
     &:focus {
-      text-decoration: underline;
+      color: var(--primary);
     }
   }
 

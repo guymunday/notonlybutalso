@@ -37,6 +37,9 @@ export const pageQuery = graphql`
           title {
             text
           }
+          title_two {
+            text
+          }
           author {
             text
           }

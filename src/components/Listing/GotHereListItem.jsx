@@ -9,8 +9,8 @@ import styled from "@emotion/styled";
 const kebabCase = require("lodash.kebabcase");
 
 const Item = styled(motion.div)`
-  width: 450px;
-  height: 500px;
+  width: 375px;
+  height: 475px;
   margin: 50px;
   flex-grow: 1;
   background: var(--bg);
@@ -22,7 +22,7 @@ const Item = styled(motion.div)`
   border: 2px solid var(--pink);
   box-shadow: var(--shadow);
   @media screen and (max-width: 650px) {
-    margin: 50px 10px;
+    margin: 50px 20px;
     width: 300px;
   }
   a {
@@ -34,19 +34,25 @@ const ItemInner = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  height: 300px;
-  .item-inner-space {
+  height: 60%;
+  a {
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-between;
+    font-size: 0.8rem;
     h2 {
-      font-size: 1.4rem;
-      padding: 20px 0;
+      font-size: 1.3rem;
+      @media screen and (max-width: 980px) {
+        font-size: 1.1rem;
+      }
     }
     h3 {
-      font-size: 0.9rem;
+      font-size: 1.12rem;
       font-weight: 450;
+      margin-top: 5px;
+      @media screen and (max-width: 980px) {
+        font-size: 0.9rem;
+      }
     }
   }
 `;
@@ -54,7 +60,7 @@ const ItemInner = styled.div`
 const HeroImageInner = styled(motion.div)`
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 40%;
   overflow: hidden;
   .gatsby-image-wrapper {
     object-fit: cover;
@@ -92,25 +98,26 @@ const GotHereListItem = ({ node, categories }) => {
           scale: 1.03,
         }}
       >
-        <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
-          <HeroImageInner>
+        <HeroImageInner>
+          <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
             {node.data.hero_image.localFile !== null && (
               <Img
                 fluid={node.data.hero_image.localFile.childImageSharp.fluid}
                 alt={node.data.title.text}
               />
             )}
-          </HeroImageInner>
-          <ItemInner>
-            {categories && <Categories categories={categories} />}
-            <div className="item-inner-space">
-              <h2>{node.data.title.text}</h2>
-              <h3>
+          </Link>
+        </HeroImageInner>
+        <ItemInner>
+          <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
+            <h2>{node.data.title.text}</h2>
+            <h3>{node.data.title_two.text}</h3>
+            {/* <h3>
                 Words by {node.data.author.text} — {node.data.date}
-              </h3>
-            </div>
-          </ItemInner>
-        </Link>
+              </h3> */}
+          </Link>
+          {categories && <Categories categories={categories} />}
+        </ItemInner>
       </Item>
     </>
   );

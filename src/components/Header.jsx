@@ -23,6 +23,10 @@ const HeaderFlex = styled.header`
       cursor: pointer;
       font-weight: 400;
       color: var(--copy);
+      transition: 0.2s ease color;
+      :hover {
+        color: var(--primary);
+      }
     }
   }
   .svg-logo {

@@ -5,22 +5,32 @@ import { Layout, Listing, PostWrapper, SliceZone, SEO } from "../components";
 import Categories from "../components/Listing/Categories";
 import website from "../../config/website";
 import Img from "gatsby-image";
+import ExploreListing from "../components/Listing/ExploreListing";
 
 const Hero = styled.section`
+  text-align: center;
   h1 {
-    font-family: "Shrikhand";
+    font-family: var(--text2);
     font-weight: 400;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    line-height: 1.2;
+    font-size: 1.8rem;
+    margin-top: 20px;
+  }
+  h2 {
+    font-family: var(--text1);
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin: 10px auto 20px auto;
+  }
+  a {
+    font-size: 0.8rem;
+  }
+  h3 {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 450;
   }
   .gatsby-image-wrapper {
     margin: 30px 0;
-  }
-  div {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
   }
 `;
 
@@ -56,9 +66,10 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
             />
           )}
           <h1>{data.title.text}</h1>
+          <h2>{data.title_two.text}</h2>
           {categories && <Categories categories={categories} />}
           <h3>
-            Words by {data.author.text} — {data.date}
+            {data.author.text} — {data.date}
           </h3>
         </Hero>
         <SliceZone allSlices={data.body} />
@@ -67,7 +78,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
         </Credits>
       </PostWrapper>
       <p>Latest</p>
-      <Listing posts={posts.nodes} />
+      <ExploreListing posts={posts.nodes} />
     </Layout>
   );
 };
@@ -85,6 +96,9 @@ export const pageQuery = graphql`
       last_publication_date
       data {
         title {
+          text
+        }
+        title_two {
           text
         }
         author {
@@ -124,9 +138,6 @@ export const pageQuery = graphql`
             id
             slice_type
             primary {
-              introduction {
-                html
-              }
               what {
                 html
               }
@@ -208,6 +219,9 @@ export const pageQuery = graphql`
           title {
             text
           }
+          title_two {
+            text
+          }
           author {
             text
           }
@@ -226,6 +240,15 @@ export const pageQuery = graphql`
               document {
                 data {
                   name
+                  category_image {
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 1200, quality: 90) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

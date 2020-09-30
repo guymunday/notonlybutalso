@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/Layout"
+import Layout from "../components/Layout";
 
 const About = ({ data }) => {
   console.log(data);
@@ -13,4 +13,3 @@ const About = ({ data }) => {
 };
 
 export default About;
-

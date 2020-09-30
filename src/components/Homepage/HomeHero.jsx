@@ -38,8 +38,10 @@ const HomeHeroSection = styled.section`
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    img {
+    .gatsby-image-wrapper {
       pointer-events: none;
+      height: 100%;
+      width: 100%;
     }
   }
 `;
@@ -49,13 +51,34 @@ const HomeHero = () => {
 
   const data = useStaticQuery(graphql`
     query MyQuery {
-      allPrismicCategory(sort: { fields: first_publication_date }) {
+      allPrismicCategory {
         edges {
           node {
             id
             data {
               name
               category_image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1200, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      allPrismicHeroSticker {
+        edges {
+          node {
+            id
+            data {
+              internal_link {
+                url
+              }
+              sticker_image {
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 1200, quality: 90) {
@@ -78,10 +101,10 @@ const HomeHero = () => {
         function randomFromTo(from, to) {
           return Math.floor(Math.random() * (to - from + 1) + from);
         }
-        const minY = 30;
-        const maxY = 60;
-        const minX = 30;
-        const maxX = 60;
+        const minY = 25;
+        const maxY = 65;
+        const minX = 25;
+        const maxX = 65;
 
         const newY = randomFromTo(minY, maxY);
         const newX = randomFromTo(minX, maxX);
@@ -102,7 +125,50 @@ const HomeHero = () => {
             {node.data.category_image.localFile !== null && (
               <Img
                 fluid={node.data.category_image.localFile.childImageSharp.fluid}
-                alt="hello"
+                alt="sticker"
+              />
+            )}
+            {/* <Link to={`/${kebabCase(node.data.name)}`}>
+              {node.data.name}
+            </Link> */}
+          </motion.div>
+        );
+      })}
+      {data.allPrismicHeroSticker.edges.map(({ node }) => {
+        // here we map over a random rotate
+        function randomFromTo(from, to) {
+          return Math.floor(Math.random() * (to - from + 1) + from);
+        }
+        const minY = 25;
+        const maxY = 65;
+        const minX = 25;
+        const maxX = 65;
+
+        const newY = randomFromTo(minY, maxY);
+        const newX = randomFromTo(minX, maxX);
+
+        return (
+          <motion.div
+            key={node.id}
+            className="sticker"
+            whileTap={{
+              scale: 1.1,
+            }}
+            drag
+            dragConstraints={constraintsRef}
+            dragTransition={{
+              bounceStiffness: 400,
+              bounceDamping: 8,
+            }}
+            style={{
+              top: `${newY}%`,
+              left: `${newX}%`,
+            }}
+          >
+            {node.data.sticker_image.localFile !== null && (
+              <Img
+                fluid={node.data.sticker_image.localFile.childImageSharp.fluid}
+                alt="sticker"
               />
             )}
             {/* <Link to={`/discipline/${kebabCase(node.data.name)}`}>

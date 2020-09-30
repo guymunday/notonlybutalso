@@ -2,14 +2,15 @@ import React from "react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import SvgLogo from "./SvgLogo";
+import Email from "./Email";
 
 const StyledFooter = styled(motion.footer)`
   position: sticky;
   bottom: 0;
   width: 100%;
-  z-index: -1;
-  height: 300px;
+  height: 150px;
   display: flex;
+  z-index: -1;
   .footer-padding {
     width: 100%;
     height: 100%;
@@ -18,8 +19,15 @@ const StyledFooter = styled(motion.footer)`
       width: 100%;
       height: 100%;
       display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
       align-items: center;
       justify-content: space-around;
+      p {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--offwhite);
+      }
     }
   }
 `;
@@ -54,7 +62,8 @@ const Footer = () => {
     >
       <div className="footer-padding">
         <div className="footer-inner">
-          <SvgLogo color="var(--offwhite)" size="300" />
+          <SvgLogo color="var(--offwhite)" size="100" />
+          <p>© Not Only — But Also 2020</p>
         </div>
       </div>
     </StyledFooter>

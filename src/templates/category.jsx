@@ -22,13 +22,13 @@ const Category = ({
     />
     <Hero>
       <h1>{category}</h1>
-      {(() => {
+      {/* {(() => {
         if (category === "Strategy") {
           return <StrategyHeader />;
         } else if (category === "UX") {
           return <UxHeader />;
         }
-      })()}
+      })()} */}
     </Hero>
     <p style={{ marginTop: "4rem" }}>
       {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}

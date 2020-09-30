@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import ListItem from "./ListItem";
 import HeroListItem from "./HeroListItem";
 
 const List = styled.div`
@@ -26,7 +25,7 @@ const Listing = ({ posts }) => {
         if (!post.data.hero_article && !post.data.how_you_got_here) {
           return (
             <div>
-              <ListItem key={post.uid} node={post} categories={categories} />{" "}
+              <HeroListItem key={post.uid} node={post} categories={categories} />{" "}
             </div>
           );
         }

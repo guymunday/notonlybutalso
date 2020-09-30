@@ -8,6 +8,7 @@ import {
   ImageCaption,
   Quote,
   WhoWhatWhere,
+  Seperator,
 } from "../slices";
 
 const Content = styled.div``;
@@ -28,6 +29,8 @@ export default class SliceZone extends Component {
           return <ImageCaption key={s.id} input={s} />;
         case "embed":
           return <Embed key={s.id} input={s} />;
+        case "seperator":
+          return <Seperator key={s.id} input={s} />;
         case "who_what_where":
           return <WhoWhatWhere key={s.id} input={s} />;
         default:

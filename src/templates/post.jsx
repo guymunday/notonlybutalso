@@ -21,13 +21,16 @@ const Hero = styled.section`
     font-size: 1.7rem;
     margin: 10px auto 20px auto;
   }
-  a {
-    font-size: 0.8rem;
-  }
-  h3 {
-    margin-top: 10px;
-    font-size: 1rem;
-    font-weight: 450;
+  .hero-info {
+    display: flex;
+    text-align: center;
+    a {
+      font-size: 0.8rem;
+    }
+    h3 {
+      font-size: 0.8rem;
+      font-weight: 450;
+    }
   }
   .gatsby-image-wrapper {
     margin: 30px 0;
@@ -59,18 +62,18 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
       />
       <PostWrapper>
         <Hero>
+          <h1>{data.title.text}</h1>
+          <h2>{data.title_two.text}</h2>
+          <div className="hero-info">
+            {categories && <Categories categories={categories} />}{" "}
+            <h3>— {data.date}</h3>
+          </div>
           {data.hero_image.localFile !== null && (
             <Img
               fluid={data.hero_image.localFile.childImageSharp.fluid}
               alt="hello"
             />
           )}
-          <h1>{data.title.text}</h1>
-          <h2>{data.title_two.text}</h2>
-          {categories && <Categories categories={categories} />}
-          <h3>
-            {data.author.text} — {data.date}
-          </h3>
         </Hero>
         <SliceZone allSlices={data.body} />
         <Credits>
@@ -113,7 +116,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        description
         date(formatString: "DD.MM.YYYY")
         categories {
           category {
@@ -150,6 +152,13 @@ export const pageQuery = graphql`
               who {
                 html
               }
+            }
+          }
+          ... on PrismicPostBodySeperator {
+            slice_type
+            id
+            primary {
+              seperator
             }
           }
           ... on PrismicPostBodyImageCaption {

@@ -122,64 +122,62 @@ const globalStyle = css`
     text-decoration: none;
   }
 
-  @media (min-width: 575.98px) {
+  h2 {
+    font-size: 1.3rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  h4 {
+    font-size: 1.3rem;
+  }
+  p,
+  strong,
+  a,
+  blockquote {
+    font-size: 1rem;
+  }
+
+  @media screen and (min-width: 767.98px) {
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
     h4 {
-      font-size: 1.2rem;
-    }
-    p,
-    strong,
-    a,
-    blockquote {
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
   }
 
-  @media (min-width: 767.98px) {
+  @media screen and (min-width: 991.98px) {
     h2 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
     h3 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
     h4 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
   }
 
-  @media (min-width: 991.98px) {
+  // Large devices (desktops, less than 1200px)
+  @media screen and (min-width: 1199.98px) {
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
     h3 {
-      font-size: 1.3rem;
+      font-size: 1.8rem;
     }
     h4 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
     p,
     strong,
     a,
     blockquote {
       font-size: 1.1rem;
-    }
-  }
-
-  // Large devices (desktops, less than 1200px)
-  @media (min-width: 1199.98px) {
-    h2 {
-      font-size: 1.4rem;
-    }
-    h3 {
-      font-size: 1.4rem;
-    }
-    h4 {
-      font-size: 1.4rem;
     }
   }
 `;

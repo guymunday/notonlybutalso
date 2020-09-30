@@ -7,6 +7,9 @@ const Content = styled.div`
     font-style: oblique;
     text-align: center;
     margin: -40px 0 45px 0;
+    a {
+      font-size: inherit;
+    }
   }
 `;
 

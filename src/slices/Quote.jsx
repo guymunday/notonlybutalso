@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const BlockQuote = styled.blockquote`
-  margin: 45px 0;
+  margin: 60px 0;
   font-family: var(--text2);
   font-weight: 400;
   font-size: 3rem;

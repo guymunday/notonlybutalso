@@ -1,10 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import { Layout, Listing, SEO } from "../components";
+import { Layout, SEO } from "../components";
 import website from "../../config/website";
-import StrategyHeader from "../components/Listing/StrategyHeader";
-import UxHeader from "../components/Listing/UxHeader";
+// import StrategyHeader from "../components/Listing/StrategyHeader";
+// import UxHeader from "../components/Listing/UxHeader";
+import ExploreListing from "../components/Listing/ExploreListing";
 
 const Hero = styled.header``;
 
@@ -22,19 +23,12 @@ const Category = ({
     />
     <Hero>
       <h1>{category}</h1>
-      {/* {(() => {
-        if (category === "Strategy") {
-          return <StrategyHeader />;
-        } else if (category === "UX") {
-          return <UxHeader />;
-        }
-      })()} */}
     </Hero>
     <p style={{ marginTop: "4rem" }}>
       {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}
       {totalCount === 1 ? "was" : "were"} tagged with "{category}"
     </p>
-    <Listing posts={nodes} />
+    <ExploreListing posts={nodes} />
   </Layout>
 );
 
@@ -63,6 +57,9 @@ export const pageQuery = graphql`
           title {
             text
           }
+          title_two {
+            text
+          }
           author {
             text
           }
@@ -81,6 +78,15 @@ export const pageQuery = graphql`
               document {
                 data {
                   name
+                  category_image {
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 1200, quality: 90) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

@@ -24,7 +24,7 @@ const ExploreListing = ({ posts }) => {
 
         return (
           <>
-            <HeroListItem key={post.uid} node={post} categories={categories} />{" "}
+            <HeroListItem key={post.uid} node={post} categories={categories} />
           </>
         );
       })}

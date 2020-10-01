@@ -35,8 +35,8 @@ export const Item = styled(motion.div)`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  @media screen and (max-width: 550px) {
-    height: 500px;
+  @media screen and (max-width: 500px) {
+    height: 475px;
     flex-direction: column;
   }
 `;
@@ -48,7 +48,7 @@ export const ItemInner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
     height: 55%;
   }
@@ -78,12 +78,13 @@ export const ItemInner = styled.div`
 export const HeroImageInner = styled(motion.div)`
   width: 30%;
   overflow: hidden;
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
     height: 45%;
   }
   a {
     .gatsby-image-wrapper {
+      overflow: hidden;
       object-fit: cover;
       height: 100%;
     }

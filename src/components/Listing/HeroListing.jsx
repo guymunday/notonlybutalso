@@ -9,7 +9,7 @@ const List = styled.div`
   width: 100%;
   max-width: 1320px;
   margin: auto;
-  padding: 50px;
+  padding: 50px 15px 120px 15px;
   position: relative;
 `;
 

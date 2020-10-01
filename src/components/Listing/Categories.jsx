@@ -8,7 +8,7 @@ export default class Categories extends Component {
   render() {
     const { categories } = this.props;
     return (
-      <>
+      <div className="categories">
         {categories.map((cat, i) => (
           <Link
             key={cat}
@@ -19,7 +19,7 @@ export default class Categories extends Component {
             {cat}
           </Link>
         ))}
-      </>
+      </div>
     );
   }
 }

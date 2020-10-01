@@ -8,6 +8,9 @@ const List = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   padding: 50px;
+  @media screen and (max-width: 500px) {
+    padding: 15px;
+  }
 `;
 
 const ExploreListing = ({ posts }) => {

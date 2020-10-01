@@ -1,36 +1,39 @@
 import React from "react";
 import styled from "@emotion/styled";
 import GotHereListItem from "./GotHereListItem";
-// import { Link, useStaticQuery } from "gatsby";
+import GotHereInto from "./GotHereInto";
 
 // Slider
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SectionTitle = styled.h3`
-  text-align: center;
-  margin-top: 60px;
-`
-
 const GotHereListing = ({ posts }) => {
   const sliderSettings = {
     infinite: true,
-    dots: true,
+    // dots: true,
     speed: 500,
     slidesToShow: 1,
     variableWidth: true,
     slidesToShow: 1,
-    centerMode: true,
+    centerMode: false,
+    arrows: false,
   };
 
   return (
     <>
-      <SectionTitle>How I got here</SectionTitle>
       <Slider
         {...sliderSettings}
-        style={{ cursor: "grab", height: 560, zIndex: 9, margin: "0 0 80px 0" }}
+        style={{
+          cursor: "grab",
+          height: 580,
+          zIndex: 9,
+          margin: "0 0 80px 0",
+          borderTop: "solid 2px var(--pink)",
+          borderBottom: "solid 2px var(--pink)",
+        }}
       >
+        <GotHereInto />
         {posts.map((post) => {
           let categories = false;
 
@@ -42,11 +45,13 @@ const GotHereListing = ({ posts }) => {
 
           if (post.data.how_you_got_here) {
             return (
-              <GotHereListItem
-                key={post.uid}
-                node={post}
-                categories={categories}
-              />
+              <>
+                <GotHereListItem
+                  key={post.uid}
+                  node={post}
+                  categories={categories}
+                />
+              </>
             );
           }
         })}

@@ -15,7 +15,7 @@ const Index = ({ data }) => {
       <AboutSection />
       <HeroListing posts={data.posts.nodes} />
       <GotHereListing posts={data.posts.nodes} />
-      <Listing posts={data.posts.nodes} />
+      {/* <Listing posts={data.posts.nodes} /> */}
     </Layout>
   );
 };
@@ -25,6 +25,7 @@ export default Index;
 export const pageQuery = graphql`
   query IndexQuery {
     posts: allPrismicPost(
+      filter: { uid: { ne: "olly-franc-not-only-callout" } }
       limit: 20
       sort: { fields: [data___date], order: DESC }
     ) {

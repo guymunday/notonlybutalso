@@ -9,7 +9,7 @@ const EmailButton = styled(motion.button)`
   box-shadow: var(--shadow);
   outline: none;
   border: 2px solid var(--pink);
-  background: none;
+  background: var(--bg);
   font-weight: 600;
   color: var(--copy);
   text-align: center;

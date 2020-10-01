@@ -31,7 +31,7 @@ const HeaderFlex = styled.header`
   }
   .svg-logo {
     width: 100%;
-    height: 40px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,7 +47,7 @@ const Header = ({ toggleMenu, setToggleMenu }) => {
       <Logo />
       <HeaderFlex>
         <div className="svg-logo">
-          <SvgLogo color="var(--header)" size="40" />
+          <SvgLogo color="var(--header)" size="60" />
         </div>
         <ThemeToggle />
         <div className="menu-button">

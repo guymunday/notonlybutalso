@@ -4,17 +4,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "gatsby";
 import Logo from "./Logo";
 import Email from "./Email";
-import SvgInstagram from "./SvgInstagram";
-import SvgLinkedin from "./SvgLinkedin";
+import SvgSocial from "./SvgSocial";
 
 const MenuContainer = styled(motion.div)`
   position: fixed;
   top: 0;
+  right: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
   background: var(--bg);
+  border: 3px solid var(--pink);
   z-index: 998;
   .menu-inner {
     width: 100%;
@@ -41,12 +42,16 @@ const MenuContainer = styled(motion.div)`
           }
         }
       }
+      .menu-reveal {
+        max-width: 400px;
+        margin-bottom: 20px;
+        p {
+          margin: 20px 0;
+        }
+      }
     }
     .follow {
       margin-top: 50px;
-      .instagram {
-        margin-right: 20px;
-      }
     }
   }
 `;
@@ -68,6 +73,19 @@ const Menu = ({ toggleMenu, setToggleMenu }) => {
               <Logo />
               <div className="menu-inner">
                 <nav className="links">
+                  <Link to="/">
+                    <motion.span
+                      whileHover={{ x: 0 }}
+                      initial={{ x: -40 }}
+                      animate={{ x: -40 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <span role="img" aria-label="Pointing figer emjoi">
+                        👉
+                      </span>{" "}
+                      Home
+                    </motion.span>
+                  </Link>
                   <Link to="/about">
                     <motion.span
                       whileHover={{ x: 0 }}
@@ -100,6 +118,7 @@ const Menu = ({ toggleMenu, setToggleMenu }) => {
                   <AnimatePresence>
                     {showContribute && (
                       <motion.div
+                        className="menu-reveal"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -128,18 +147,21 @@ const Menu = ({ toggleMenu, setToggleMenu }) => {
                   <AnimatePresence>
                     {showContact && (
                       <motion.div
+                        className="menu-reveal"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                       >
-                        <p>If you would like to contribute...</p>
+                        <p>
+                          If you want to share some words of wisdom, work with
+                          us or just have a question then shoot us an email at:
+                        </p>
                         <Email />
                       </motion.div>
                     )}
                   </AnimatePresence>
                   <div className="follow">
-                    <SvgInstagram color="var(--copy)" size="25" />
-                    <SvgLinkedin color="var(--copy)" size="25" />
+                    <SvgSocial color="var(--copy)" size="25" space={10} />
                   </div>
                 </nav>
               </div>

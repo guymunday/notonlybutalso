@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Global, css } from "@emotion/core";
-import "@reach/skip-nav/styles.css";
+import styled from "@emotion/styled";
 
 import Footer from "./Footer";
 import SEO from "./SEO";
@@ -13,6 +13,8 @@ import Menu from "./Menu";
 
 import { motion, AnimatePresence } from "framer-motion";
 import Contribute from "./Homepage/Contribute";
+import FooterLinks from "./FooterLinks";
+import CookiesPopup from "./CookiesPopup";
 
 const globalStyle = css`
   ${reset}
@@ -30,6 +32,7 @@ const globalStyle = css`
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   body {
@@ -55,6 +58,7 @@ const globalStyle = css`
       0 3.5px 14.4px rgba(0, 0, 0, 0.152), 0 3.8px 24.2px rgba(0, 0, 0, 0.167),
       0 4px 80px rgba(0, 0, 0, 0.2);
     color: var(--copy);
+    width: 100%;
     background-color: var(--bg);
     font-family: "Inter", Helvetica, sans-serif;
     font-style: normal;
@@ -103,6 +107,10 @@ const globalStyle = css`
     color: var(--copy);
   }
 
+  h1 {
+    font-weight: 600;
+  }
+
   h2 {
     font-family: "Shrikhand";
     font-weight: 400;
@@ -134,7 +142,8 @@ const globalStyle = css`
   p,
   strong,
   a,
-  blockquote {
+  blockquote,
+  li {
     font-size: 1rem;
   }
 
@@ -176,7 +185,8 @@ const globalStyle = css`
     p,
     strong,
     a,
-    blockquote {
+    blockquote,
+    li {
       font-size: 1.1rem;
     }
   }
@@ -202,8 +212,22 @@ const variants = {
   },
 };
 
+const Cookies = styled(motion.div)`
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  background: var(--copy);
+  z-index: 9999;
+`;
+
 const Layout = ({ children, data, customSEO }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [cookies, setCookies] = useState(false);
+
+  if (cookies) {
+    localStorage.setItem("cookies", "1");
+  }
 
   const html = typeof window !== "undefined" && document.querySelector("html");
 
@@ -220,6 +244,13 @@ const Layout = ({ children, data, customSEO }) => {
         <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
         <Menu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
         {!customSEO && <SEO />}
+        <AnimatePresence>
+          {!cookies &&
+            typeof window !== "undefined" &&
+            !localStorage.getItem("cookies") && (
+              <CookiesPopup cookies={cookies} setCookies={setCookies} />
+            )}
+        </AnimatePresence>
         <AnimatePresence exitBeforeEnter>
           <motion.main
             variants={variants}
@@ -227,9 +258,10 @@ const Layout = ({ children, data, customSEO }) => {
             animate="enter"
             exit="exit"
             style={{ background: "var(--bg)" }}
+            onClick={() => setCookies(true)}
           >
             {children}
-            <Contribute />
+            <FooterLinks />
           </motion.main>
         </AnimatePresence>
       </div>

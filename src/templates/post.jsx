@@ -1,14 +1,15 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import { Layout, Listing, PostWrapper, SliceZone, SEO } from "../components";
+import { Layout, PostWrapper, SliceZone, SEO } from "../components";
 import Categories from "../components/Listing/Categories";
 import website from "../../config/website";
 import Img from "gatsby-image";
 import ExploreListing from "../components/Listing/ExploreListing";
 
-const Hero = styled.section`
+export const Hero = styled.section`
   text-align: center;
+  margin-top: 45px;
   h1 {
     font-family: var(--text2);
     font-weight: 400;
@@ -23,17 +24,30 @@ const Hero = styled.section`
   }
   .hero-info {
     display: flex;
-    text-align: center;
-    a {
-      font-size: 0.8rem;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 45px;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
     }
-    h3 {
-      font-size: 0.8rem;
-      font-weight: 450;
+    .date {
+      margin-left: 0.28em;
+      p {
+        font-size: 0.8rem;
+        font-weight: 450;
+      }
+    }
+    .categories {
+      a {
+        font-size: 0.8rem;
+        font-weight: 450;
+      }
     }
   }
   .gatsby-image-wrapper {
     margin: 30px 0;
+    box-shadow: var(--shadow);
   }
 `;
 
@@ -65,8 +79,10 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
           <h1>{data.title.text}</h1>
           <h2>{data.title_two.text}</h2>
           <div className="hero-info">
-            {categories && <Categories categories={categories} />}{" "}
-            <h3>— {data.date}</h3>
+            {categories && <Categories categories={categories} />}
+            <div className="date">
+              <p>— {data.date}</p>
+            </div>
           </div>
           {data.hero_image.localFile !== null && (
             <Img
@@ -77,7 +93,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
         </Hero>
         <SliceZone allSlices={data.body} />
         <Credits>
-          <h3>Words by {data.author.text}</h3>
+          {/* <h3>Words by {data.author.text}</h3> */}
         </Credits>
       </PostWrapper>
       <p>Latest</p>
@@ -171,15 +187,6 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on PrismicPostBodyEmbed {
-            slice_type
-            id
-            primary {
-              video {
-                html
-              }
-            }
-          }
           ... on PrismicPostBodyText {
             slice_type
             id
@@ -267,3 +274,13 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+// ... on PrismicPostBodyEmbed {
+//   slice_type
+//   id
+//   primary {
+//     video {
+//       html
+//     }
+//   }
+// }

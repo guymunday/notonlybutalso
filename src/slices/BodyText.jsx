@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const Content = styled.div`
+export const BodyContent = styled.div`
   margin: 45px 0;
   h3 {
     font-weight: 450;
@@ -34,7 +34,7 @@ const Content = styled.div`
 `;
 
 const BodyText = ({ input }) => (
-  <Content dangerouslySetInnerHTML={{ __html: input.primary.text.html }} />
+  <BodyContent dangerouslySetInnerHTML={{ __html: input.primary.text.html }} />
 );
 
 export default BodyText;

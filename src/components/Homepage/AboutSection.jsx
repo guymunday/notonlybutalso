@@ -6,7 +6,7 @@ import SvgLogo from "../SvgLogo";
 
 export const AboutSectionContainer = styled.section`
   text-align: center;
-  padding: 50px 0;
+  padding: 50px 0 0 0;
   div {
     padding: 0 20px;
     h2 {
@@ -35,10 +35,10 @@ const AboutSection = () => {
           scrambled it to make a type specimen book.
         </p>
         <Link to="/about">
-          Find out more{" "}
-          <span role="img" aria-label="Pointing figer emjoi">
+          Find out more
+          {/* <span role="img" aria-label="Pointing figer emjoi">
             👉
-          </span>
+          </span> */}
         </Link>
       </div>
     </AboutSectionContainer>

@@ -23,23 +23,25 @@ export const HeroImage = styled(motion.div)`
 `;
 
 export const Item = styled(motion.div)`
-  width: 100%;
-  max-width: 900px;
-  height: 200px;
-  background: var(--bg);
-  border-radius: 20px;
-  overflow: hidden !important;
-  margin: 20px auto;
-  border: 2px solid var(--pink);
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  @media screen and (max-width: 580px) {
-    height: auto;
-    flex-direction: column;
-  }
-`;
+         width: 100%;
+         max-width: 900px;
+         height: 200px;
+         background: var(--bg);
+         border-radius: 20px;
+         overflow: hidden !important;
+         margin: 20px auto;
+         border: 2px solid var(--pink);
+         box-shadow: var(--shadow);
+         display: flex;
+         flex-direction: row;
+         flex-wrap: nowrap;
+         transform-style: preserve-3d;
+         will-change: transform;
+         @media screen and (max-width: 580px) {
+           height: auto;
+           flex-direction: column;
+         }
+       `;
 
 export const ItemInner = styled.div`
   width: 70%;

@@ -81,9 +81,8 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
       <SEO
         title={`${data.title.text} | ${website.titleAlt}`}
         pathname={location.pathname}
-        desc={data.description}
+        desc={data.title_two.text}
         node={prismicPost}
-        image={data.hero_image.localFile}
         article
       />
       <PostWrapper>

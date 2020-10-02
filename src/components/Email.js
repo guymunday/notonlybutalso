@@ -14,7 +14,7 @@ const EmailButton = styled(motion.button)`
   color: var(--copy);
   text-align: center;
   transition: color 0.2s ease;
-  font-size: 18px;
+  font-size: 1rem;
   :hover {
     color: var(--primary);
   }

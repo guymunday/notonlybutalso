@@ -20,6 +20,8 @@ const Item = styled(motion.div)`
   flex-wrap: nowrap;
   border: 2px solid var(--slider-boarder);
   box-shadow: var(--shadow);
+  transform-style: preserve-3d;
+  will-change: transform;
   @media screen and (max-width: 650px) {
     margin: 50px 20px;
     width: 290px;

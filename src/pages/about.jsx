@@ -11,6 +11,7 @@ const About = ({ data }) => {
   return (
     <>
       <Layout>
+        <SEO title={`About | ${website.titleAlt}`} />
         <PostWrapper>
           <SvgLogo color="var(--header)" size="100" />
           <HomeHero style={{ height: "100%" }} />

@@ -16,7 +16,7 @@ const MenuContainer = styled(motion.div)`
   height: 100%;
   overflow: auto;
   background: var(--bg);
-  border: 3px solid var(--pink);
+  border: 3px solid var(--secondary);
   z-index: 998;
   .menu-inner {
     width: 100%;

@@ -10,7 +10,7 @@ const EmailContainer = styled.div`
     border-radius: 6px;
     /* box-shadow: var(--shadow); */
     outline: none;
-    border: 2px solid var(--pink);
+    border: 2px solid var(--secondary);
     background: var(--bg);
     font-weight: 600;
     color: var(--copy);
@@ -23,7 +23,7 @@ const GetFeatured = () => {
   return (
     <EmailContainer>
       <motion.div className="get-featured" whileTap={{ scale: 0.95 }}>
-        <a href="/" target="_blank">
+        <a href="https://forms.gle/mxRBTg1hLoWVUgnf8" target="_blank">
           Get Featured
         </a>
       </motion.div>

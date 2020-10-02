@@ -8,7 +8,7 @@ const EmailButton = styled(motion.button)`
   border-radius: 6px;
   /* box-shadow: var(--shadow); */
   outline: none;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--secondary);
   background: var(--bg);
   font-weight: 600;
   color: var(--copy);
@@ -33,7 +33,7 @@ const EmailPopup = styled(motion.div)`
   width: 150px;
   font-size: 0.9rem;
   font-weight: 600;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--secondary);
   background: var(--bg);
   box-shadow: var(--shadow);
   text-align: center;

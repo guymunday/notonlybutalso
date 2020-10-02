@@ -7,6 +7,7 @@ import AboutSection from "../components/Homepage/AboutSection";
 import HomeHero from "../components/Homepage/HomeHero";
 import HeroListing from "../components/Listing/HeroListing";
 import GotHereListing from "../components/Listing/GotHereListing";
+import OllyFranc from "../components/Listing/OllyFranc";
 
 const Index = ({ data }) => {
   return (
@@ -16,6 +17,7 @@ const Index = ({ data }) => {
       <HeroListing posts={data.posts.nodes} />
       <GotHereListing posts={data.posts.nodes} />
       {/* <Listing posts={data.posts.nodes} /> */}
+      <OllyFranc />
     </Layout>
   );
 };

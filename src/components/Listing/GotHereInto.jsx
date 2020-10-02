@@ -26,7 +26,7 @@ const Item = styled.div`
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: nowrap;
-  border: 2px solid var(--slider-boarder);
+  border: 2px solid var(--secondary);
   box-shadow: var(--shadow);
   .emoji-arrows {
     width: 100%;

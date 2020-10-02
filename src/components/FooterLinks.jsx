@@ -9,7 +9,7 @@ import GetFeatured from "./GetFeatured";
 const FooterLinksContainer = styled.nav`
   width: 100%;
   background: var(--bg);
-  border-top: 2px solid var(--pink);
+  border-top: 2px solid var(--secondary);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;

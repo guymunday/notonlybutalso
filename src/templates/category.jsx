@@ -10,7 +10,7 @@ import ExploreListing from "../components/Listing/ExploreListing";
 const Hero = styled.header`
   width: 100%;
   max-width: 900px;
-  margin: 80px auto -60px auto;
+  margin: 40px auto -60px auto;
   padding: 50px 15px;
   h1 {
     font-size: 1.4rem;

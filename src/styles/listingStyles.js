@@ -30,7 +30,7 @@ export const Item = styled(motion.div)`
          border-radius: 20px;
          overflow: hidden !important;
          margin: 20px auto;
-         border: 2px solid var(--pink);
+         border: 2px solid var(--secondary);
          box-shadow: var(--shadow);
          display: flex;
          flex-direction: row;

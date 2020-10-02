@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import Categories from "./Categories";
 import Img from "gatsby-image";
@@ -18,7 +18,7 @@ const Item = styled(motion.div)`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  border: 2px solid var(--slider-boarder);
+  border: 2px solid var(--secondary);
   box-shadow: var(--shadow);
   transform-style: preserve-3d;
   will-change: transform;

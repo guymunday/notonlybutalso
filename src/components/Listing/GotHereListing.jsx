@@ -29,8 +29,8 @@ const GotHereListing = ({ posts }) => {
           height: 580,
           zIndex: 9,
           margin: "0 0 80px 0",
-          borderTop: "2px solid var(--pink)",
-          borderBottom: "2px solid var(--pink)",
+          borderTop: "2px solid var(--secondary)",
+          borderBottom: "2px solid var(--secondary)",
           background: "var(--slider)",
         }}
       >

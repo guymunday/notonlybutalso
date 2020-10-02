@@ -33,13 +33,13 @@ const Item = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     span {
-      font-size: 2rem;
+      font-size: 1.5rem;
       padding: 20px 20px 0 20px;
     }
     .swipe {
       font-size: 0.9rem;
+      font-weight: 600;
       @media screen and (min-width: 650px) {
         display: none;
       }

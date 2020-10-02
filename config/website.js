@@ -4,7 +4,8 @@ module.exports = {
   titleAlt: "Not Only — But Also", // Title for JSONLD
   description:
     "Helping young creatives explore and find a career that is right for them by shedding light on the other roles that exist in the industry with features, advice and resources.",
-  headline: "A platform to shed light on the other roles in the creative industry.", // Headline for schema.org JSONLD
+  headline:
+    "A platform to shed light on the other roles in the creative industry.", // Headline for schema.org JSONLD
   url: "https://notonlybutalso.org", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
   logo: "/logos/logo-1024.png", // Used for SEO
@@ -19,7 +20,5 @@ module.exports = {
 
   twitter: "n/a", // Twitter Username
   facebook: "n/a", // Facebook Site Name
-  googleAnalyticsID: "UA-47519312-7",
-
-  skipNavId: "reach-skip-nav", // ID for the "Skip to content" a11y feature
+  googleAnalyticsID: "UA-171543390-1",
 };

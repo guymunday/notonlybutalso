@@ -44,7 +44,7 @@ const MenuContainer = styled(motion.div)`
         }
       }
       .menu-reveal {
-        max-width: 405px;
+        max-width: 360px;
         margin-bottom: 20px;
         p {
           margin: 20px 0;
@@ -167,6 +167,12 @@ const Menu = ({ toggleMenu, setToggleMenu }) => {
                   <div className="follow">
                     <SvgSocial color="var(--copy)" size="25" space={10} />
                   </div>
+                  <Link
+                    style={{ margin: "30px 0 0 0", fontSize: "0.7rem" }}
+                    to="/privacy"
+                  >
+                    Privacy Policy
+                  </Link>
                 </nav>
               </div>
             </MenuContainer>

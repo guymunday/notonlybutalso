@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 import SvgLogo from "./SvgLogo";
+import { Link } from "gatsby";
 
 const HeaderFlex = styled.header`
   .menu-button {
@@ -27,7 +28,8 @@ const HeaderFlex = styled.header`
     }
   }
   .svg-logo {
-    width: 100%;
+    width: 70px;
+    margin: auto;
     height: 70px;
     display: flex;
     align-items: center;
@@ -43,9 +45,9 @@ const Header = ({ toggleMenu, setToggleMenu }) => {
     <>
       <Logo />
       <HeaderFlex>
-        <div className="svg-logo">
+        <Link to="/" className="svg-logo">
           <SvgLogo color="var(--header)" size="60" />
-        </div>
+        </Link>
         <ThemeToggle />
         <div className="menu-button">
           <motion.button

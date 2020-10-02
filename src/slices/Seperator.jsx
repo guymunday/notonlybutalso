@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const SeperatorSpan = styled.span`
+export const SeperatorSpan = styled.span`
   display: block;
   width: 300px;
   height: 2px;

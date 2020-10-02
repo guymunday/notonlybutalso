@@ -15,7 +15,9 @@ const EmailContainer = styled.div`
     font-weight: 600;
     color: var(--copy);
     text-align: center;
-    font-size: 1rem;
+    a {
+      font-size: 1rem;
+    }
   }
 `;
 

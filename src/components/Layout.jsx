@@ -57,8 +57,7 @@ const globalStyle = css`
       0 2px 3.8px rgba(0, 0, 0, 0.083), 0 2.4px 5.1px rgba(0, 0, 0, 0.112),
       0 2.7px 6.1px rgba(0, 0, 0, 0.131), 0 2.9px 7px rgba(0, 0, 0, 0.142),
       0 3.1px 8.2px rgba(0, 0, 0, 0.147), 0 3.3px 10.3px rgba(0, 0, 0, 0.148),
-      0 3.5px 14.4px rgba(0, 0, 0, 0.152), 0 3.8px 24.2px rgba(0, 0, 0, 0.167),
-      0 4px 80px rgba(0, 0, 0, 0.2);
+      0 3.5px 14.4px rgba(0, 0, 0, 0.152), 0 3.8px 24.2px rgba(0, 0, 0, 0.167);
     color: var(--copy);
     width: 100%;
     background-color: var(--bg);
@@ -89,8 +88,7 @@ const globalStyle = css`
       0 2px 3.8px rgba(0, 0, 0, 0.083), 0 2.4px 5.1px rgba(0, 0, 0, 0.112),
       0 2.7px 6.1px rgba(0, 0, 0, 0.131), 0 2.9px 7px rgba(0, 0, 0, 0.142),
       0 3.1px 8.2px rgba(0, 0, 0, 0.147), 0 3.3px 10.3px rgba(0, 0, 0, 0.148),
-      0 3.5px 14.4px rgba(0, 0, 0, 0.152), 0 3.8px 24.2px rgba(0, 0, 0, 0.167),
-      0 4px 80px rgba(0, 0, 0, 0.2);
+      0 3.5px 14.4px rgba(0, 0, 0, 0.152), 0 3.8px 24.2px rgba(0, 0, 0, 0.167);
     --shadowinverse: 0 1.3px 2.2px rgba(0, 0, 0, 0.009),
       0 2px 3.8px rgba(0, 0, 0, 0.017), 0 2.4px 5.1px rgba(0, 0, 0, 0.022),
       0 2.7px 6.1px rgba(0, 0, 0, 0.026), 0 2.9px 7px rgba(0, 0, 0, 0.028),

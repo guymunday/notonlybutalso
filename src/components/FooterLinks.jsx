@@ -14,18 +14,22 @@ const FooterLinksContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
   .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       flex-direction: column;
     }
     .button1 {
       margin-right: 15px;
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 600px) {
         margin-right: 0px;
         margin-bottom: 15px;
+        margin-top: 15px;
       }
     }
   }

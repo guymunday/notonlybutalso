@@ -11,7 +11,6 @@ const IntroductionContainer = styled.div`
   box-shadow: var(--shadow);
   padding: 20px;
   .who {
-    font-size: 0.8rem;
     font-weight: 600;
     color: var(--primary);
     margin-top: 10px;

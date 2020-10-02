@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import SvgLogo from "./SvgLogo";
+import { Link } from "gatsby";
 
 const StyledFooter = styled.footer`
   position: sticky;

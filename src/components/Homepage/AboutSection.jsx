@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 export const AboutSectionContainer = styled(motion.section)`
   text-align: center;
@@ -16,6 +15,15 @@ const Frame = styled(motion.div)`
     padding: 0 20px;
     overflow: hidden;
     width: 100%;
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      max-width: 760px;
+      margin: 0px auto 1.3rem auto;
+      @media screen and (max-width: 980px) {
+        font-size: 1.2rem;
+      }
+    }
     p {
       font-size: 1.5rem;
       font-weight: 450;
@@ -32,40 +40,11 @@ const Frame = styled(motion.div)`
 `;
 
 const AboutSection = () => {
-  const animation = useAnimation();
-  const [about, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-150px",
-  });
-
-  useEffect(() => {
-    if (inView) {
-      animation.start("visible");
-    }
-  }, [animation, inView]);
-
   return (
-    <AboutSectionContainer
-      ref={about}
-      animate={animation}
-      initial="hidden"
-      variants={{
-        visible: {
-          y: 0,
-          opacity: 1,
-          transition: {
-            duration: 0.8,
-            ease: [0.6, 0.05, -0.01, 0.9],
-          },
-        },
-        hidden: { y: "100%", opacity: 0 },
-      }}
-    >
+    <AboutSectionContainer>
       <Frame>
         <motion.div className="hide-show">
-          <p>
-            The creative industry is Not Only about graphic design.
-          </p>
+          <h3>The creative industry is Not Only about graphic design</h3>
         </motion.div>
       </Frame>
       <Frame>

@@ -16,7 +16,7 @@ const GotHereListing = ({ posts }) => {
     slidesToShow: 1,
     variableWidth: true,
     slidesToShow: 1,
-    centerMode: false,
+    centerMode: true,
     arrows: false,
   };
 
@@ -29,8 +29,9 @@ const GotHereListing = ({ posts }) => {
           height: 580,
           zIndex: 9,
           margin: "0 0 80px 0",
-          borderTop: "solid 2px var(--pink)",
-          borderBottom: "solid 2px var(--pink)",
+          borderTop: "2px solid var(--pink)",
+          borderBottom: "2px solid var(--pink)",
+          background: "var(--slider)",
         }}
       >
         <GotHereInto />

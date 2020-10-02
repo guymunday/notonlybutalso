@@ -6,7 +6,7 @@ import Img from "gatsby-image";
 
 const kebabCase = require("lodash.kebabcase");
 
-const HomeHeroSection = styled.section`
+const HomeHeroSection = styled(motion.section)`
   width: 100%;
   height: 70vh;
   background: var(--copy);
@@ -45,6 +45,22 @@ const HomeHeroSection = styled.section`
     }
   }
 `;
+
+const container = {
+  hidden: { opacity: 1 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.28,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, scale: 0.3 },
+  show: { opacity: 1, scale: 1 },
+};
 
 const HomeHero = () => {
   const constraintsRef = useRef(null);
@@ -95,22 +111,28 @@ const HomeHero = () => {
   `);
 
   return (
-    <HomeHeroSection ref={constraintsRef}>
+    <HomeHeroSection
+      ref={constraintsRef}
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
       {data.allPrismicCategory.edges.map(({ node }) => {
         // here we map over a random rotate
         function randomFromTo(from, to) {
           return Math.floor(Math.random() * (to - from + 1) + from);
         }
-        const minY = 25;
-        const maxY = 65;
-        const minX = 25;
-        const maxX = 65;
+        const minY = 18;
+        const maxY = 68;
+        const minX = 18;
+        const maxX = 68;
 
         const newY = randomFromTo(minY, maxY);
         const newX = randomFromTo(minX, maxX);
 
         return (
           <motion.div
+            variants={item}
             key={node.id}
             className={`${kebabCase(node.data.name)} sticker`}
             whileTap={{ scale: 1.1 }}
@@ -139,16 +161,17 @@ const HomeHero = () => {
         function randomFromTo(from, to) {
           return Math.floor(Math.random() * (to - from + 1) + from);
         }
-        const minY = 25;
-        const maxY = 65;
-        const minX = 25;
-        const maxX = 65;
+        const minY = 18;
+        const maxY = 68;
+        const minX = 18;
+        const maxX = 68;
 
         const newY = randomFromTo(minY, maxY);
         const newX = randomFromTo(minX, maxX);
 
         return (
           <motion.div
+            variants={item}
             key={node.id}
             className="sticker"
             whileTap={{

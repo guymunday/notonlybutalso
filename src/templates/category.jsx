@@ -7,7 +7,16 @@ import website from "../../config/website";
 // import UxHeader from "../components/Listing/UxHeader";
 import ExploreListing from "../components/Listing/ExploreListing";
 
-const Hero = styled.header``;
+const Hero = styled.header`
+  width: 100%;
+  max-width: 900px;
+  margin: 80px auto -60px auto;
+  padding: 50px 15px;
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+`;
 
 const Category = ({
   pageContext: { category },
@@ -23,11 +32,11 @@ const Category = ({
     />
     <Hero>
       <h1>{category}</h1>
+      <p>
+        {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}
+        {totalCount === 1 ? "was" : "were"} tagged with "{category}"
+      </p>
     </Hero>
-    <p style={{ marginTop: "4rem" }}>
-      {totalCount} {totalCount === 1 ? "Post" : "Posts"}{" "}
-      {totalCount === 1 ? "was" : "were"} tagged with "{category}"
-    </p>
     <ExploreListing posts={nodes} />
   </Layout>
 );

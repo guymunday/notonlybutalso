@@ -3,10 +3,11 @@ import styled from "@emotion/styled";
 
 const Content = styled.div`
   p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-style: oblique;
     text-align: center;
-    margin: -40px 0 45px 0;
+    margin: -35px auto 45px auto;
+    max-width: 500px;
     a {
       font-size: inherit;
     }

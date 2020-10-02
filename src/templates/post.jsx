@@ -13,13 +13,14 @@ export const Hero = styled.section`
   h1 {
     font-family: var(--text2);
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: 2.3rem;
     margin-top: 20px;
+    line-height: 1.3;
   }
   h2 {
     font-family: var(--text1);
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     margin: 10px auto 20px auto;
   }
   .hero-info {
@@ -33,9 +34,18 @@ export const Hero = styled.section`
     }
     .date {
       margin-left: 0.28em;
-      p {
+      @media screen and (max-width: 500px) {
+        margin-left: 0;
+      }
+      p,
+      span {
         font-size: 0.8rem;
         font-weight: 450;
+        span {
+          @media screen and (max-width: 500px) {
+            display: none;
+          }
+        }
       }
     }
     .categories {
@@ -51,10 +61,11 @@ export const Hero = styled.section`
   }
 `;
 
-const Credits = styled.div`
-  margin: 60px 0;
+const Latest = styled.div`
+  margin: 60px 0 -20px 0;
   text-align: center;
-  h3 {
+  p {
+    font-weight: 600;
     font-size: 1.2rem;
   }
 `;
@@ -72,6 +83,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
         pathname={location.pathname}
         desc={data.description}
         node={prismicPost}
+        image={data.hero_image.localFile}
         article
       />
       <PostWrapper>
@@ -81,7 +93,9 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
           <div className="hero-info">
             {categories && <Categories categories={categories} />}
             <div className="date">
-              <p>— {data.date}</p>
+              <p>
+                <span>—</span> {data.date}
+              </p>
             </div>
           </div>
           {data.hero_image.localFile !== null && (
@@ -92,11 +106,10 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
           )}
         </Hero>
         <SliceZone allSlices={data.body} />
-        <Credits>
-          {/* <h3>Words by {data.author.text}</h3> */}
-        </Credits>
       </PostWrapper>
-      <p>Latest</p>
+      <Latest>
+        <p>See our latest posts</p>
+      </Latest>
       <ExploreListing posts={posts.nodes} />
     </Layout>
   );
@@ -196,6 +209,15 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on PrismicPostBodyEmbed {
+            slice_type
+            id
+            primary {
+              video {
+                html
+              }
+            }
+          }
           ... on PrismicPostBodyQuote {
             slice_type
             id
@@ -274,13 +296,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-// ... on PrismicPostBodyEmbed {
-//   slice_type
-//   id
-//   primary {
-//     video {
-//       html
-//     }
-//   }
-// }

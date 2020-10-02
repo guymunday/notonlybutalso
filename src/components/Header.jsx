@@ -8,12 +8,9 @@ import SvgLogo from "./SvgLogo";
 const HeaderFlex = styled.header`
   .menu-button {
     position: fixed;
-    top: 12px;
+    top: 7px;
     right: 16px;
     z-index: 999;
-    @media screen and (max-width: 650px) {
-      top: 5px;
-    }
     button {
       font-size: 16px;
       font-family: var(--text2);

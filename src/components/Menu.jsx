@@ -5,6 +5,7 @@ import { Link } from "gatsby";
 import Logo from "./Logo";
 import Email from "./Email";
 import SvgSocial from "./SvgSocial";
+import GetFeatured from "./GetFeatured";
 
 const MenuContainer = styled(motion.div)`
   position: fixed;
@@ -43,7 +44,7 @@ const MenuContainer = styled(motion.div)`
         }
       }
       .menu-reveal {
-        max-width: 400px;
+        max-width: 405px;
         margin-bottom: 20px;
         p {
           margin: 20px 0;
@@ -96,7 +97,7 @@ const Menu = ({ toggleMenu, setToggleMenu }) => {
                       <span role="img" aria-label="Pointing figer emjoi">
                         👉
                       </span>{" "}
-                      About us
+                      About
                     </motion.span>
                   </Link>
                   <div
@@ -123,8 +124,11 @@ const Menu = ({ toggleMenu, setToggleMenu }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                       >
-                        <p>If you would like to contribute...</p>
-                        <Email />
+                        <p>
+                          We're always looking for people to contribute. If you
+                          want be featured, fill out the form below.
+                        </p>
+                        <GetFeatured />
                       </motion.div>
                     )}
                   </AnimatePresence>

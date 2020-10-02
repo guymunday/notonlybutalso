@@ -28,15 +28,15 @@ export const Item = styled(motion.div)`
   height: 200px;
   background: var(--bg);
   border-radius: 20px;
-  overflow: hidden;
+  overflow: hidden !important;
   margin: 20px auto;
   border: 2px solid var(--pink);
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  @media screen and (max-width: 500px) {
-    height: 475px;
+  @media screen and (max-width: 580px) {
+    height: auto;
     flex-direction: column;
   }
 `;
@@ -48,7 +48,7 @@ export const ItemInner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 580px) {
     width: 100%;
     height: 55%;
   }
@@ -61,7 +61,7 @@ export const ItemInner = styled.div`
     h2 {
       font-size: 1.3rem;
       @media screen and (max-width: 980px) {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
       }
     }
     h3 {
@@ -69,7 +69,10 @@ export const ItemInner = styled.div`
       font-weight: 450;
       margin-top: 5px;
       @media screen and (max-width: 980px) {
-        font-size: 0.9rem;
+        font-size: 1rem;
+      }
+      @media screen and (max-width: 580px) {
+        margin-bottom: 80px;
       }
     }
   }
@@ -78,9 +81,9 @@ export const ItemInner = styled.div`
 export const HeroImageInner = styled(motion.div)`
   width: 30%;
   overflow: hidden;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 580px) {
     width: 100%;
-    height: 45%;
+    height: 180px;
   }
   a {
     .gatsby-image-wrapper {

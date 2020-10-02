@@ -7,6 +7,9 @@ const SeperatorSpan = styled.span`
   height: 2px;
   background: var(--pink);
   margin: 70px auto;
+  @media screen and (max-width: 650px) {
+    width: 100%;
+  }
 `;
 
 const Seperator = ({ input }) => input.primary.seperator && <SeperatorSpan />;

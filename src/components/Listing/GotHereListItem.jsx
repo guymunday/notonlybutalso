@@ -14,11 +14,11 @@ const Item = styled(motion.div)`
   flex-grow: 1;
   background: var(--bg);
   border-radius: 15px;
-  overflow: hidden;
+  overflow: hidden !important;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--slider-boarder);
   box-shadow: var(--shadow);
   @media screen and (max-width: 650px) {
     margin: 50px 20px;
@@ -67,16 +67,17 @@ const HeroImageInner = styled(motion.div)`
   }
 `;
 
-
 const GotHereListItem = ({ node, categories }) => {
   return (
     <>
       <Item
+        style={{ overflow: "hidden" }}
         className={`${kebabCase(categories[0])}`}
         whileTap={{ scale: 0.98 }}
         whileHover={{
           scale: 1.03,
         }}
+        initial={{ scale: 1 }}
       >
         <HeroImageInner>
           <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>

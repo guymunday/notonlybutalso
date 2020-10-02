@@ -19,7 +19,6 @@ import CookiesPopup from "./CookiesPopup";
 const globalStyle = css`
   ${reset}
   * {
-    transition: font-size 0.4s ease;
     background: transparent;
     padding: 0;
     margin: 0;
@@ -45,6 +44,9 @@ const globalStyle = css`
     --text1: "Inter", Helvetica, sans-serif;
     --text2: "Shrikhand", serif;
     --pink: #ffa3b0;
+    --slider: #ffa3b0;
+    --navy: #17213b;
+    --slider-boarder: #17213b;
     --shadow: 0 1.3px 2.2px rgba(0, 0, 0, 0.009),
       0 2px 3.8px rgba(0, 0, 0, 0.017), 0 2.4px 5.1px rgba(0, 0, 0, 0.022),
       0 2.7px 6.1px rgba(0, 0, 0, 0.026), 0 2.9px 7px rgba(0, 0, 0, 0.028),
@@ -80,6 +82,9 @@ const globalStyle = css`
     --text1: "Inter", Helvetica, sans-serif;
     --text2: "Shrikhand", serif;
     --pink: #ffa3b0;
+    --navy: #17213b;
+    --slider: #17213b;
+    --slider-boarder: #ffa3b0;
     --shadow: 0 1.3px 2.2px rgba(0, 0, 0, 0.046),
       0 2px 3.8px rgba(0, 0, 0, 0.083), 0 2.4px 5.1px rgba(0, 0, 0, 0.112),
       0 2.7px 6.1px rgba(0, 0, 0, 0.131), 0 2.9px 7px rgba(0, 0, 0, 0.142),
@@ -192,35 +197,6 @@ const globalStyle = css`
   }
 `;
 
-const duration = 0.5;
-
-const variants = {
-  initial: {
-    opacity: 0,
-  },
-  enter: {
-    opacity: 1,
-    transition: {
-      duration: duration,
-      delay: duration,
-      when: "beforeChildren",
-    },
-  },
-  exit: {
-    y: 100,
-    transition: { duration: 13, delay: duration },
-  },
-};
-
-const Cookies = styled(motion.div)`
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  height: 100px;
-  background: var(--copy);
-  z-index: 9999;
-`;
-
 const Layout = ({ children, data, customSEO }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [cookies, setCookies] = useState(false);
@@ -251,19 +227,13 @@ const Layout = ({ children, data, customSEO }) => {
               <CookiesPopup cookies={cookies} setCookies={setCookies} />
             )}
         </AnimatePresence>
-        <AnimatePresence exitBeforeEnter>
-          <motion.main
-            variants={variants}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            style={{ background: "var(--bg)" }}
-            onClick={() => setCookies(true)}
-          >
-            {children}
-            <FooterLinks />
-          </motion.main>
-        </AnimatePresence>
+        <motion.main
+          style={{ background: "var(--bg)" }}
+          onClick={() => setCookies(true)}
+        >
+          {children}
+          <FooterLinks />
+        </motion.main>
       </div>
       <Footer />
     </>

@@ -6,18 +6,24 @@ import useEventListener from "../hooks/useEventListener";
 const EmailButton = styled(motion.button)`
   padding: 5px;
   border-radius: 6px;
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); */
   outline: none;
   border: 2px solid var(--pink);
   background: var(--bg);
   font-weight: 600;
   color: var(--copy);
   text-align: center;
+  transition: color 0.2s ease;
+  font-size: 18px;
+  :hover {
+    color: var(--primary);
+  }
 `;
 
 const EmailContainer = styled.div`
   position: relative;
   display: inline-block;
+  cursor: pointer;
 `;
 
 const EmailPopup = styled(motion.div)`

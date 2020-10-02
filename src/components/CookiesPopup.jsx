@@ -33,6 +33,7 @@ const Cookies = styled(motion.div)`
       font-weight: 600;
       color: var(--copy);
       text-align: center;
+      box-shadow: var(--shadowinverse);
     }
   }
 `;

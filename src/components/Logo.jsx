@@ -17,13 +17,10 @@ const LogoContainer = styled.div`
     align-items: baseline;
     position: relative;
     overflow: hidden;
-    height: 58px;
+    height: 40px;
     margin: auto;
     z-index: 4;
     text-decoration: none;
-    @media screen and (max-width: 650px) {
-      height: 36px;
-    }
     @media screen and (max-width: 500px) {
       display: none;
     }
@@ -38,30 +35,23 @@ const LogoContainer = styled.div`
 
     span {
       display: block;
-      height: 3px;
+      height: 2px;
       background: var(--header);
-      margin-top: -6px;
+      margin-top: -2px;
       transform-origin: left center;
       align-self: center;
-      @media screen and (max-width: 650px) {
-        height: 2px;
-        margin-top: 2px;
-      }
     }
   }
   .logo-h1 {
     a {
       white-space: nowrap;
-      font-size: 35px;
+      font-size: 25px;
       font-family: "Inter";
       font-weight: 600;
       padding: 0;
       padding: 3px;
       text-decoration: none;
       color: var(--header);
-      @media screen and (max-width: 650px) {
-        font-size: 25px;
-      }
     }
   }
 `;

@@ -4,12 +4,9 @@ import styled from "@emotion/styled";
 
 const Switch = styled.label`
   position: fixed;
-  top: 21px;
+  top: 14px;
   left: 16px;
   z-index: 999;
-  @media screen and (max-width: 650px) {
-    top: 12px;
-  }
   display: flex;
   height: 15px;
   width: 25px;

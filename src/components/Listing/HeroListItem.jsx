@@ -52,6 +52,7 @@ const HeroListItem = ({ node, categories }) => {
         )}
       </AnimatePresence>
       <Item
+        style={{overflow: "hidden"}}
         className={`${kebabCase(categories[0])}`}
         onMouseEnter={() => {
           setIsHovered(true);
@@ -62,6 +63,7 @@ const HeroListItem = ({ node, categories }) => {
         onClick={() => setIsHovered(false)}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
+        initial={{ scale: 1 }}
       >
         <HeroImageInner
           initial={{ opacity: 0, scale: 0.9 }}

@@ -26,15 +26,23 @@ const Item = styled.div`
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: nowrap;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--slider-boarder);
   box-shadow: var(--shadow);
   .emoji-arrows {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     span {
       font-size: 2rem;
       padding: 20px 20px 0 20px;
+    }
+    .swipe {
+      font-size: 0.9rem;
+      @media screen and (min-width: 650px) {
+        display: none;
+      }
     }
   }
 `;
@@ -75,6 +83,7 @@ const GotHereIntro = () => {
           <span role="img" aria-label="pointing emoji left">
             👈
           </span>
+          <span class="swipe">Swipe</span>
           <span role="img" aria-label="pointing emoji right">
             👉
           </span>

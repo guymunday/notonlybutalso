@@ -10,12 +10,7 @@ const About = ({ data }) => {
   console.log(data);
   return (
     <>
-      <Layout customSEO>
-        <SEO
-          title={`About | ${website.titleAlt}`}
-          pathname={location.pathname}
-          desc={data.description}
-        />
+      <Layout>
         <PostWrapper>
           <SvgLogo color="var(--header)" size="100" />
           <HomeHero style={{ height: "100%" }} />

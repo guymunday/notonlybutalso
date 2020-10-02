@@ -30,6 +30,7 @@ const OllyFrancContainer = styled(motion.section)`
         border-radius: 50%;
         height: 200px;
         width: 200px;
+        box-shadow: var(--shadow);
         @media screen and (max-width: 900px) {
           width: 170px;
           height: 170px;

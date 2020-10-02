@@ -12,7 +12,6 @@ import Header from "./Header";
 import Menu from "./Menu";
 
 import { motion, AnimatePresence } from "framer-motion";
-import Contribute from "./Homepage/Contribute";
 import FooterLinks from "./FooterLinks";
 import CookiesPopup from "./CookiesPopup";
 

@@ -13,9 +13,14 @@ export const Hero = styled.section`
   h1 {
     font-family: var(--text2);
     font-weight: 400;
-    font-size: 2.3rem;
-    margin-top: 20px;
+    font-size: 2.8rem;
+    max-width: 900px;
+    padding: 0 10px;
+    margin: 20px auto 0 auto;
     line-height: 1.3;
+    @media screen and (max-width: 600px) {
+      font-size: 2.3rem;
+    }
   }
   h2 {
     font-family: var(--text1);
@@ -56,13 +61,13 @@ export const Hero = styled.section`
     }
   }
   .gatsby-image-wrapper {
-    margin: 30px 0;
+    margin: 30px 0 0 0;
     box-shadow: var(--shadow);
   }
 `;
 
 const Latest = styled.div`
-  margin: 60px 0 -20px 0;
+  margin: 80px 0 -20px 0;
   text-align: center;
   p {
     font-weight: 600;
@@ -85,9 +90,10 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
         node={prismicPost}
         article
       />
-      <PostWrapper>
-        <Hero>
-          <h1>{data.title.text}</h1>
+
+      <Hero>
+        <h1>{data.title.text}</h1>
+        <PostWrapper>
           <h2>{data.title_two.text}</h2>
           <div className="hero-info">
             {categories && <Categories categories={categories} />}
@@ -103,7 +109,9 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
               alt="hello"
             />
           )}
-        </Hero>
+        </PostWrapper>
+      </Hero>
+      <PostWrapper>
         <SliceZone allSlices={data.body} />
       </PostWrapper>
       <Latest>

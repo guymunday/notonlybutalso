@@ -11,6 +11,9 @@ const BlockQuote = styled.blockquote`
     font-weight: 400;
     font-size: 1.6rem;
     text-align: center;
+    @media screen and (max-width: 500px) {
+      font-size: 1.3rem;
+    }
     :before {
       content: "“";
     }

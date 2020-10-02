@@ -22,12 +22,14 @@ export const BodyContent = styled.div`
     }
   }
   ul {
-    list-style-position: inside;
+    list-style-position: outside;
     list-style: none;
+    margin-left: 2rem;
     li {
       :before {
         content: "💡";
         margin-right: 15px;
+        margin-left: -2rem;
       }
     }
   }

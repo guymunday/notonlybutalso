@@ -32,6 +32,10 @@ const HomeHeroSection = styled(motion.section)`
       width: 120px;
       height: 120px;
     }
+    @media screen and (max-width: 375px) {
+      width: 85px;
+      height: 85px;
+    }
     a {
       position: absolute;
       top: 50%;
@@ -117,50 +121,17 @@ const HomeHero = () => {
       initial="hidden"
       animate="show"
     >
-      {data.allPrismicCategory.edges.map(({ node }) => {
-        // here we map over a random rotate
-        function randomFromTo(from, to) {
-          return Math.floor(Math.random() * (to - from + 1) + from);
-        }
-        const minY = 18;
-        const maxY = 68;
-        const minX = 18;
-        const maxX = 68;
-
-        const newY = randomFromTo(minY, maxY);
-        const newX = randomFromTo(minX, maxX);
-
-        return (
-          <motion.div
-            variants={item}
-            key={node.id}
-            className={`${kebabCase(node.data.name)} sticker`}
-            whileTap={{ scale: 1.1 }}
-            drag
-            dragConstraints={constraintsRef}
-            dragTransition={{ bounceStiffness: 400, bounceDamping: 8 }}
-            style={{
-              top: `${newY}%`,
-              left: `${newX}%`,
-            }}
-          >
-            {node.data.category_image.localFile !== null && (
-              <Img
-                fluid={node.data.category_image.localFile.childImageSharp.fluid}
-                alt="sticker"
-              />
-            )}
-            {/* <Link to={`/${kebabCase(node.data.name)}`}>
-              {node.data.name}
-            </Link> */}
-          </motion.div>
-        );
-      })}
       {data.allPrismicHeroSticker.edges.map(({ node }) => {
         // here we map over a random rotate
         function randomFromTo(from, to) {
           return Math.floor(Math.random() * (to - from + 1) + from);
         }
+
+        const rotateMin = -30;
+        const rotateMax = 30;
+
+        const newRotate = randomFromTo(rotateMin, rotateMax);
+
         const minY = 18;
         const maxY = 68;
         const minX = 18;
@@ -192,9 +163,60 @@ const HomeHero = () => {
               <Img
                 fluid={node.data.sticker_image.localFile.childImageSharp.fluid}
                 alt="sticker"
+                style={{
+                  transform: `rotate(${newRotate}deg)`,
+                }}
               />
             )}
             {/* <Link to={`/discipline/${kebabCase(node.data.name)}`}>
+              {node.data.name}
+            </Link> */}
+          </motion.div>
+        );
+      })}
+      {data.allPrismicCategory.edges.map(({ node }) => {
+        // here we map over a random rotate
+        function randomFromTo(from, to) {
+          return Math.floor(Math.random() * (to - from + 1) + from);
+        }
+
+        const rotateMin = -30;
+        const rotateMax = 30;
+
+        const newRotate = randomFromTo(rotateMin, rotateMax);
+
+        const minY = 18;
+        const maxY = 68;
+        const minX = 18;
+        const maxX = 68;
+
+        const newY = randomFromTo(minY, maxY);
+        const newX = randomFromTo(minX, maxX);
+
+        return (
+          <motion.div
+            variants={item}
+            key={node.id}
+            className={`${kebabCase(node.data.name)} sticker`}
+            whileTap={{ scale: 1.1 }}
+            drag
+            dragConstraints={constraintsRef}
+            dragTransition={{ bounceStiffness: 400, bounceDamping: 8 }}
+            style={{
+              top: `${newY}%`,
+              left: `${newX}%`,
+            }}
+          >
+            {node.data.category_image.localFile !== null && (
+              <Img
+                fluid={node.data.category_image.localFile.childImageSharp.fluid}
+                alt="sticker"
+                style={{
+                  transform: `rotate(${newRotate}deg)`,
+                }}
+              />
+            )}
+            {/* <Link to={`/${kebabCase(node.data.name)}`}>
               {node.data.name}
             </Link> */}
           </motion.div>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
@@ -28,13 +28,15 @@ const Frame = styled(motion.div)`
       font-size: 1.5rem;
       font-weight: 450;
       max-width: 760px;
-      margin: 0px auto 1.3rem auto;
+      margin: 0px auto 2.5rem auto;
       @media screen and (max-width: 980px) {
         font-size: 1.2rem;
       }
     }
     a {
-      margin-top: 1rem;
+      span {
+        font-size: inherit;
+      }
     }
   }
 `;
@@ -51,10 +53,10 @@ const AboutSection = () => {
         <motion.div className="hide-show">
           <p>
             We're here to open the conversation by exploring the other roles
-            that exist, who does them and how to get there.
+            that exist, who does them and how to get there
           </p>
           <Link to="/about">
-            About Not Only — But Also{" "}
+            Find out more{" "}
             <span role="img" aria-label="pointing finger emoji">
               👉
             </span>

@@ -5,7 +5,7 @@ export const SeperatorSpan = styled.span`
   display: block;
   width: 300px;
   height: 2px;
-  background: var(--pink);
+  background: var(--secondary);
   margin: 70px auto;
   @media screen and (max-width: 650px) {
     width: 100%;

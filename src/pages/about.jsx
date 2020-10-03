@@ -144,8 +144,10 @@ const StickerContainer = styled(motion.div)`
 `;
 
 const MaddiGuy = styled.div`
+  width: 100%;
   padding: 30px;
   .maddi-guy {
+    width: 100%;
     display: flex;
     margin: auto;
     align-items: flex-start;
@@ -410,14 +412,13 @@ const About = ({ data }) => {
           </AboutContainer>
           <MaddiGuy>
             <div className="maddi-guy">
-              {data.allPrismicSingleImage.nodes.map(({ data }) => {
-                return (
-                  <Img
-                    fluid={data.single_image.localFile.childImageSharp.fluid}
-                    alt={data.single_image.alt}
-                  />
-                );
-              })}
+              <Img
+                fluid={
+                  data.allPrismicSingleImage.nodes[0].data.single_image
+                    .localFile.childImageSharp.fluid
+                }
+                alt={data.allPrismicSingleImage.nodes[0].data.single_image.alt}
+              />
               <div className="maddi-guy-inner">
                 <div className="guy">
                   <h3>Guy</h3>

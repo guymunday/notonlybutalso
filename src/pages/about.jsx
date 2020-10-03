@@ -9,6 +9,7 @@ import { SeperatorSpan } from "../slices/Seperator";
 import GetFeatured from "../components/GetFeatured";
 import { motion } from "framer-motion";
 import Img from "gatsby-image";
+import GuyMaddiImage from "../components/GuyMaddiImage";
 
 const RolesCards = styled.div`
   display: flex;
@@ -412,13 +413,7 @@ const About = ({ data }) => {
           </AboutContainer>
           <MaddiGuy>
             <div className="maddi-guy">
-              <Img
-                fluid={
-                  data.allPrismicSingleImage.nodes[0].data.single_image
-                    .localFile.childImageSharp.fluid
-                }
-                alt={data.allPrismicSingleImage.nodes[0].data.single_image.alt}
-              />
+              <GuyMaddiImage />
               <div className="maddi-guy-inner">
                 <div className="guy">
                   <h3>Guy</h3>
@@ -435,11 +430,11 @@ const About = ({ data }) => {
                   <h3>Maddi</h3>
                   <h4>Strategist</h4>
                   <p>
-                    Guy’s a Graphic Designer turned Developer currently keeping
-                    things running at Not Only — But Also while transitioning
-                    between roles. He’s self taught in all things code and
-                    spends half his time tinkering with fun interactions and
-                    animations.
+                    With a background in Graphic Design, Maddi now works as a
+                    Brand Strategist.You can find her in catch ups with graphic
+                    design students, sharing what she knows or eating snacks
+                    while doing an online course. If we’re being really honest…
+                    just snacking all the time.
                   </p>
                 </div>
               </div>
@@ -488,36 +483,6 @@ export const pageQuery = graphql`
                   fluid(maxWidth: 1200, quality: 90) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    allPrismicSingleImage(
-      filter: {
-        id: {}
-        data: {
-          single_image: {
-            localFile: {
-              childImageSharp: {
-                id: { eq: "a533a146-e7d5-520c-b1be-b750912de7ea" }
-              }
-            }
-          }
-        }
-      }
-    ) {
-      nodes {
-        data {
-          single_image {
-            alt
-            localFile {
-              childImageSharp {
-                id
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

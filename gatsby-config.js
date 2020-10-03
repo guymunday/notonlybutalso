@@ -79,6 +79,13 @@ module.exports = {
         icon: website.favicon,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/src/assets`,
+      },
+    },
     "gatsby-plugin-dark-mode",
     // Must be placed at the end
     "gatsby-plugin-offline",

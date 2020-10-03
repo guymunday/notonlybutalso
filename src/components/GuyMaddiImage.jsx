@@ -4,52 +4,24 @@ import Img from "gatsby-image";
 
 const GuyMaddiImage = () => {
   const data = useStaticQuery(graphql`
-    query {
-      allPrismicSingleImage(
-        filter: {
-          id: {}
-          data: {
-            single_image: {
-              localFile: {
-                childImageSharp: {
-                  id: { eq: "a533a146-e7d5-520c-b1be-b750912de7ea" }
-                }
-              }
-            }
-          }
-        }
+    query ImageQuery {
+      allImageSharp(
+        filter: { id: { eq: "a533a146-e7d5-520c-b1be-b750912de7ea" } }
       ) {
         nodes {
-          data {
-            single_image {
-              alt
-              localFile {
-                childImageSharp {
-                  id
-                  fluid {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
+          fluid(maxWidth: 1200, quality: 90) {
+            ...GatsbyImageSharpFluid_withWebp
           }
+          id
         }
       }
     }
   `);
-
-  console.log(
-    data.allPrismicSingleImage.nodes[0].data.single_image.localFile
-      .childImageSharp.fluid
-  );
-
+  
   return (
     <Img
-      fluid={
-        data.allPrismicSingleImage.nodes[0].data.single_image.localFile
-          .childImageSharp.fluid
-      }
-      alt={data.allPrismicSingleImage.nodes[0].data.single_image.alt}
+      fluid={data.allImageSharp.nodes[0].fluid}
+      alt="Guy and Maddi, founders of Not Only — But Also"
     />
   );
 };

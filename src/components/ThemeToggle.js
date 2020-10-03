@@ -26,6 +26,7 @@ const Switch = styled.label`
     bottom: 0;
     background-color: var(--copy);
     transition: 0.4s;
+    box-shadow: var(--shadow);
   }
 
   .slider:before {
@@ -34,7 +35,7 @@ const Switch = styled.label`
     height: 9px;
     width: 9px;
     left: 3px;
-    bottom: 3px;
+    bottom: 3.5px;
     background-color: var(--bg);
     -webkit-transition: 0.4s;
     transition: 0.4s;

@@ -89,6 +89,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
         desc={data.title_two.text}
         node={prismicPost}
         article
+        banner={data.hero_image.url}
       />
 
       <Hero>
@@ -144,6 +145,7 @@ export const pageQuery = graphql`
           text
         }
         hero_image {
+          url
           localFile {
             childImageSharp {
               fluid(maxWidth: 1200, quality: 90) {
@@ -152,7 +154,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        date(formatString: "DD.MM.YYYY")
+        date(formatString: "MMMM YYYY")
         categories {
           category {
             document {
@@ -279,7 +281,7 @@ export const pageQuery = graphql`
               }
             }
           }
-          date(formatString: "DD.MM.YYYY")
+          date(formatString: "MMMM YYYY")
           categories {
             category {
               document {

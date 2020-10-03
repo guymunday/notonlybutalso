@@ -348,7 +348,7 @@ const About = ({ data }) => {
                 </Link>
                 <p>
                   A behind the scenes look at what these roles do and how they
-                  fit into different name agencies and brands.
+                  fit into different agencies and brands.
                 </p>
               </div>
             </div>

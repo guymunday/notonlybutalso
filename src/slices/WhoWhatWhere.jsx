@@ -5,7 +5,7 @@ const IntroductionContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--secondary);
   border-radius: 12px;
   background: var(--bg);
   box-shadow: var(--shadow);

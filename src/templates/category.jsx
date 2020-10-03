@@ -81,7 +81,7 @@ export const pageQuery = graphql`
               }
             }
           }
-          date(formatString: "DD.MM.YYYY")
+          date(formatString: "MMMM YYYY")
           categories {
             category {
               document {

@@ -24,6 +24,7 @@ module.exports = {
     author: website.author,
     twitter: website.twitter,
     facebook: website.facebook,
+    image: "/notOnlyButAlsoMeta.png", // Path to your image you placed in the 'static' folder
   },
   /* Plugins */
   plugins: [

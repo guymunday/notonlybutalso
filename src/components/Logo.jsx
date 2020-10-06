@@ -68,7 +68,7 @@ const Logo = () => {
             transition={{
               duration: 0.8,
               ease: [0.6, 0.05, -0.01, 0.9],
-              delay: 1,
+              delay: 0.3,
            }}
           >
             <Link to="/">Not Only</Link>
@@ -80,7 +80,7 @@ const Logo = () => {
           transition={{
             duration: 0.8,
             ease: [0.6, 0.05, -0.01, 0.9],
-            delay: 2,
+            delay: 1.3,
           }}
         ></motion.span>
         <div className="ba">
@@ -91,7 +91,7 @@ const Logo = () => {
             transition={{
               duration: 0.8,
               ease: [0.6, 0.05, -0.01, 0.9],
-              delay: 3,
+              delay: 2.3,
             }}
           >
             <Link to="/">But Also</Link>

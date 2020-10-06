@@ -65,7 +65,11 @@ const Logo = () => {
             className="logo-h1"
             initial={{ y: "-400%", skewY: -40, opacity: 0 }}
             animate={{ y: "0", skewY: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
+            transition={{
+              duration: 0.8,
+              ease: [0.6, 0.05, -0.01, 0.9],
+              delay: 1,
+           }}
           >
             <Link to="/">Not Only</Link>
           </motion.h1>
@@ -76,7 +80,7 @@ const Logo = () => {
           transition={{
             duration: 0.8,
             ease: [0.6, 0.05, -0.01, 0.9],
-            delay: 0.8,
+            delay: 2,
           }}
         ></motion.span>
         <div className="ba">
@@ -87,7 +91,7 @@ const Logo = () => {
             transition={{
               duration: 0.8,
               ease: [0.6, 0.05, -0.01, 0.9],
-              delay: 1.6,
+              delay: 3,
             }}
           >
             <Link to="/">But Also</Link>

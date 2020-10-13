@@ -16,9 +16,11 @@ export const BodyContent = styled.div`
     strong {
       color: var(--primary);
       font-weight: 600;
+      font-size: inherit;
     }
     em {
       font-style: oblique;
+      font-size: inherit;
     }
   }
   ul {

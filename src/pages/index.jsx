@@ -16,8 +16,8 @@ const Index = ({ data }) => {
       <AboutSection />
       <HeroListing posts={data.posts.nodes} />
       <GotHereListing posts={data.posts.nodes} />
-      {/* <Listing posts={data.posts.nodes} /> */}
       <OllyFranc />
+      {/* <Listing posts={data.posts.nodes} /> */}
     </Layout>
   );
 };

@@ -156,15 +156,28 @@ const MaddiGuy = styled.div`
     @media screen and (max-width: 870px) {
       flex-direction: column;
     }
-    .gatsby-image-wrapper {
+    .about-image {
       width: 40%;
       height: 100%;
-      box-shadow: var(--shadow);
-      object-fit: cover;
+      .gatsby-image-wrapper {
+        width: 100%;
+        height: 100%;
+        box-shadow: var(--shadow);
+        object-fit: cover;
+      }
       @media screen and (max-width: 870px) {
         width: 100%;
       }
+      p {
+        font-size: 14px;
+        text-align: center;
+        margin-top: 0.7rem;
+        a {
+          font-size: inherit;
+        }
+      }
     }
+
     .maddi-guy-inner {
       width: 60%;
       padding: 0 20px;
@@ -413,17 +426,27 @@ const About = ({ data }) => {
           </AboutContainer>
           <MaddiGuy>
             <div className="maddi-guy">
-              <GuyMaddiImage />
+              <div className="about-image">
+                <GuyMaddiImage />
+                <p>
+                  <span role="img" alt="camera emoji">
+                    📷
+                  </span>{" "}
+                  by{" "}
+                  <a href="http://www.jamikaela.com" target="_blank">
+                    Jamie Henderson
+                  </a>
+                </p>
+              </div>
               <div className="maddi-guy-inner">
                 <div className="guy">
                   <h3>Guy</h3>
                   <h4>Developer/ Designer</h4>
                   <p>
                     Guy’s a Graphic Designer turned Developer currently keeping
-                    things running at Not Only — But Also while transitioning
-                    between roles. He’s self taught in all things code and
-                    spends half his time tinkering with fun interactions and
-                    animations.
+                    things running at Not Only — But Also. He’s self taught in
+                    all things code and spends half his time tinkering with fun
+                    interactions and animations.
                   </p>
                 </div>
                 <div className="maddi">

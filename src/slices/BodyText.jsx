@@ -17,7 +17,7 @@ export const BodyContent = styled.div`
   p {
     margin: 40px 0;
     strong {
-      color: var(--primary);
+      /* color: var(--primary); */
       font-weight: 600;
       font-size: inherit;
     }

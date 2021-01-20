@@ -3,6 +3,9 @@ import styled from "@emotion/styled";
 
 export const BodyContent = styled.div`
   margin: 45px 0;
+  h2 {
+    font-size: 2rem;
+  }
   h3 {
     font-weight: 450;
     margin-bottom: -20px;

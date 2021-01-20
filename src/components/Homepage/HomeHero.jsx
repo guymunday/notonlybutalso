@@ -23,6 +23,7 @@ const HomeHeroSection = styled(motion.section)`
     border-radius: 50%;
     box-shadow: var(--shadowinverse);
     overflow: hidden;
+    user-select: none;
     cursor: all-scroll;
     ::active,
     :focus {

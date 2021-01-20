@@ -139,7 +139,7 @@ const globalStyle = css`
     font-size: 1.3rem;
   }
   h4 {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   p,
   strong,
@@ -156,9 +156,6 @@ const globalStyle = css`
     h3 {
       font-size: 1.5rem;
     }
-    h4 {
-      font-size: 1.5rem;
-    }
   }
 
   @media screen and (min-width: 991.98px) {
@@ -166,9 +163,6 @@ const globalStyle = css`
       font-size: 1.5rem;
     }
     h3 {
-      font-size: 1.5rem;
-    }
-    h4 {
       font-size: 1.5rem;
     }
   }
@@ -181,14 +175,12 @@ const globalStyle = css`
     h3 {
       font-size: 1.8rem;
     }
-    h4 {
-      font-size: 1.4rem;
-    }
     p,
     strong,
     a,
     blockquote,
-    li {
+    li,
+    h4 {
       font-size: 1.1rem;
     }
   }

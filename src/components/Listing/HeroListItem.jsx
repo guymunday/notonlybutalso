@@ -10,6 +10,8 @@ import styled from "@emotion/styled";
 
 const Item = styled(motion.div)`
   width: 100%;
+  max-width: 350px;
+  margin: auto;
   height: 500px;
   background: var(--bg);
   border-radius: 15px;

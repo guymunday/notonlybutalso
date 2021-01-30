@@ -80,10 +80,7 @@ const ListItem = ({ node, categories }) => {
         <ItemInner>
           <Link to={`/${kebabCase(categories[0])}/${node.uid}`}>
             <h2>{node.data.title.text}</h2>
-            {/* <h3>{node.data.title_two.text}</h3> */}
-            {/* <h3>
-              Words by {node.data.author.text} — {node.data.date}
-            </h3> */}
+            <h3>{node.data.title_two.text}</h3>
           </Link>
           {categories && <Categories categories={categories} />}
         </ItemInner>

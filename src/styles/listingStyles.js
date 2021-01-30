@@ -23,29 +23,29 @@ export const HeroImage = styled(motion.div)`
 `;
 
 export const Item = styled(motion.div)`
-         width: 100%;
-         max-width: 900px;
-         height: 200px;
-         background: var(--bg);
-         border-radius: 20px;
-         overflow: hidden !important;
-         margin: 20px auto;
-         border: 2px solid var(--secondary);
-         box-shadow: var(--shadow);
-         display: flex;
-         flex-direction: row;
-         flex-wrap: nowrap;
-         transform-style: preserve-3d;
-         will-change: transform;
-         @media screen and (max-width: 580px) {
-           height: auto;
-           flex-direction: column;
-         }
-       `;
+  width: 100%;
+  max-width: 900px;
+  min-height: 200px;
+  background: var(--bg);
+  border-radius: 20px;
+  overflow: hidden !important;
+  margin: 20px auto;
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  transform-style: preserve-3d;
+  will-change: transform;
+  @media screen and (max-width: 580px) {
+    height: auto;
+    flex-direction: column;
+  }
+`;
 
 export const ItemInner = styled.div`
-  width: 70%;
-  height: 100%;
+  width: 65%;
+  /* height: 100%; */
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -78,10 +78,13 @@ export const ItemInner = styled.div`
       }
     }
   }
+  .categories {
+    align-self: baseline;
+  }
 `;
 
 export const HeroImageInner = styled(motion.div)`
-  width: 30%;
+  width: 35%;
   overflow: hidden;
   @media screen and (max-width: 580px) {
     width: 100%;

@@ -1,17 +1,6 @@
 import React from "react";
-import styled from "@emotion/styled";
 import HeroListItem from "./HeroListItem";
-
-const List = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding: 50px;
-  @media screen and (max-width: 500px) {
-    padding: 15px;
-  }
-`;
+import { List } from "./HeroListing";
 
 const ExploreListing = ({ posts }) => {
   return (
@@ -24,7 +13,7 @@ const ExploreListing = ({ posts }) => {
             (c) => c.category.document[0].data.name
           );
         }
-
+        
         return (
           <>
             <HeroListItem key={post.uid} node={post} categories={categories} />

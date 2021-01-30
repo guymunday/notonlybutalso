@@ -9,7 +9,9 @@ import {
   Quote,
   WhoWhatWhere,
   Seperator,
+  LinkedPosts,
 } from "../slices";
+import HeadshotArticle from "../slices/HeadshotArticle";
 
 const Content = styled.div``;
 
@@ -33,6 +35,10 @@ export default class SliceZone extends Component {
           return <Seperator key={s.id} input={s} />;
         case "who_what_where":
           return <WhoWhatWhere key={s.id} input={s} />;
+        case "internal_link":
+          return <LinkedPosts key={s.id} input={s} />;
+        case "headshot":
+          return <HeadshotArticle key={s.id} input={s} />;
         default:
           return null;
       }

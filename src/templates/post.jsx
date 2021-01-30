@@ -75,7 +75,7 @@ const Latest = styled.div`
   }
 `;
 
-const Post = ({ data: { prismicPost, posts }, location }) => {
+const Post = ({ data: { prismicPost, posts }, location, uid }) => {
   const { data } = prismicPost;
   let categories = false;
   if (data.categories[0].category) {
@@ -174,6 +174,61 @@ export const pageQuery = graphql`
           }
         }
         body {
+          ... on PrismicPostBodyInternalLink {
+            id
+            slice_type
+            items {
+              label {
+                text
+              }
+              link {
+                id
+                uid
+                document {
+                  uid
+                  data {
+                    title {
+                      text
+                    }
+                    title_two {
+                      text
+                    }
+                    author {
+                      text
+                    }
+                    hero_image {
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 1200, quality: 90) {
+                            ...GatsbyImageSharpFluid_withWebp
+                          }
+                        }
+                      }
+                    }
+                    date(formatString: "MMMM YYYY")
+                    categories {
+                      category {
+                        document {
+                          data {
+                            name
+                            category_image {
+                              localFile {
+                                childImageSharp {
+                                  fluid(maxWidth: 1200, quality: 90) {
+                                    ...GatsbyImageSharpFluid_withWebp
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
           ... on PrismicPostBodyWhoWhatWhere {
             id
             slice_type
@@ -237,6 +292,21 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on PrismicPostBodyHeadshot {
+            id
+            slice_type
+            items {
+              headshot {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1200, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
           ... on PrismicPostBodyImage {
             slice_type
             id
@@ -263,6 +333,17 @@ export const pageQuery = graphql`
       nodes {
         uid
         data {
+          body {
+            ... on PrismicPostBodyInternalLink {
+              id
+              items {
+                link {
+                  id
+                  uid
+                }
+              }
+            }
+          }
           title {
             text
           }
@@ -275,8 +356,8 @@ export const pageQuery = graphql`
           hero_image {
             localFile {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
+                fluid(maxWidth: 1200, quality: 90) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

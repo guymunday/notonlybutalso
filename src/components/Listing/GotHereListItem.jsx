@@ -8,7 +8,7 @@ import styled from "@emotion/styled";
 const kebabCase = require("lodash.kebabcase");
 
 const Item = styled(motion.div)`
-  width: 375px;
+  width: 350px;
   height: 475px;
   margin: 50px;
   flex-grow: 1;

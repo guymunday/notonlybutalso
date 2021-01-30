@@ -383,7 +383,7 @@ const About = ({ data }) => {
             <div className="roles-outer">
               <h3>How to get there</h3>
               <div className="roles-card">
-                <Link to="/strategy/brand-strategist-skills">
+                <Link to="/where-to-start">
                   Where to start{" "}
                   <span role="img" aria-label="pointing finger emoji">
                     👉

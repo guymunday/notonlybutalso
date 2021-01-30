@@ -37,7 +37,7 @@ const Footer = () => {
       <div className="footer-padding">
         <div className="footer-inner">
           <SvgLogo color="var(--offwhite)" size="100" />
-          <p>© Not Only — But Also 2020</p>
+          <p>{`© Not Only — But Also ${new Date().getFullYear()}`}</p>
         </div>
       </div>
     </StyledFooter>

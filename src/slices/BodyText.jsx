@@ -45,6 +45,14 @@ export const BodyContent = styled.div`
       }
     }
   }
+  ol {
+    list-style-position: outside;
+    margin-left: 2rem;
+    margin: 40px 0 40px 2rem;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const BodyText = ({ input }) => (

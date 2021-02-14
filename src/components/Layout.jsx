@@ -122,6 +122,7 @@ const globalStyle = css`
     text-decoration: none;
     font-weight: 600;
     transition: 0.2s ease;
+    /* color: var(--primary); */
     &:hover,
     &:focus {
       color: var(--primary);

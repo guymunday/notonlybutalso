@@ -16,7 +16,7 @@ const GotHereListing = ({ posts }) => {
     slidesToShow: 1,
     variableWidth: true,
     slidesToScroll: 1,
-    centerMode: true,
+    centerMode: false,
     arrows: false,
     touchThreshold: 20,
   };

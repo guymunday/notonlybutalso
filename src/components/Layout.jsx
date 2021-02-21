@@ -3,7 +3,6 @@
 
 import React, { useState, useEffect } from "react";
 import { Global, css } from "@emotion/core";
-import styled from "@emotion/styled";
 
 import Footer from "./Footer";
 import SEO from "./SEO";
@@ -107,6 +106,9 @@ const globalStyle = css`
     margin: 0;
     padding: 0;
     color: var(--copy);
+    strong {
+      font-weight: 600;
+    }
   }
 
   h1 {
@@ -127,10 +129,6 @@ const globalStyle = css`
     &:focus {
       color: var(--primary);
     }
-  }
-
-  strong {
-    font-weight: 600;
   }
 
   a.nostyle {

@@ -129,6 +129,10 @@ const globalStyle = css`
     }
   }
 
+  strong {
+    font-weight: 600;
+  }
+
   a.nostyle {
     text-decoration: none;
   }

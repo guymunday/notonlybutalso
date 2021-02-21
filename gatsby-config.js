@@ -45,6 +45,12 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `38689933611`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [

@@ -8,6 +8,7 @@ import HomeHero from "../components/Homepage/HomeHero";
 import HeroListing from "../components/Listing/HeroListing";
 import GotHereListing from "../components/Listing/GotHereListing";
 import OllyFranc from "../components/Listing/OllyFranc";
+import Instagram from "../components/Instagram";
 
 const Index = ({ data }) => {
   return (
@@ -18,6 +19,7 @@ const Index = ({ data }) => {
       <GotHereListing posts={data.posts.nodes} />
       <Listing posts={data.posts.nodes} />
       <OllyFranc />
+      {/* <Instagram /> */}
     </Layout>
   );
 };
